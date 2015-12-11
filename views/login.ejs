@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= title %></title>
+        <link rel='stylesheet' href='/stylesheets/style.css'>
+    </head>
+    <body>
+        <div class="login-container box-shadow center">
+            <h2 class="centerText">Login:</h2>
+            <form action="/login" method="post">
+                <input class="login-name center" type="text" name="username">
+                <input class="login-password center" type="password" name="password">
+                <input class="login-btn center pointer" type="submit" value="OK">
+            </form>
+        </div>
+    </body>
+</html>

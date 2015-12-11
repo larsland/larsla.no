@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= title %></title>
+        <link rel='stylesheet' href='/stylesheets/style.css'>
+        <script src='/javascripts/loadArticles.js'></script>
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    </head>
+    <body>
+        <% include partials/header %>
+        <div class="main-container center">
+            <div class="row">
+                <div class="news-wrapper">
+                    <div style="width: 90%">
+                        <% if(user) { %>
+                        <div class="post-btn-container borderBox box-shadow pointer center noSelect" id="post-btn">
+                            <img class="post-btn-image noSelect" src="icons/pencil2.svg">
+                        </div>
+                        <% } else {%>
+                        <% } %>
+                    </div>
+                    <div class="submit-container" id="submit-container">
+                        <form action="/api/articles" method="POST" target="dummyframe">
+                            <input id="titleField" class="input-title center" type="text" name="title" placeholder="title"></input><br>
+                            <textarea id="contentField" rows=10 class="input-text center" name="content" placeholder="content"></textarea><br>
+                            <input type="submit" class="input-btn right"></submit>
+                            <iframe style="display:none" width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
+                        </form>
+                    </div>
+                    <div id="articlesContainer" class="articles-container"></div>
+                </div>
+                <% include partials/sidebox %>
+            </div>
+        </div>
+        <% include partials/footer %>
+        <script src="/javascripts/sidebar.js"></script>
+        <script src="/javascripts/clock.js"></script>
+        <script src="/javascripts/post-btn.js"></script>
+        <script src="/javascripts/navHighlight.js"></script>
+        <script src="/javascripts/marked.js"></script>
+    </body>
+</html>

@@ -1,0 +1,401 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:200);
+@import url(http://fonts.googleapis.com/css?family=Cutive+Mono);
+
+/* Table of contents
+ * 1.0 - Base
+ - * 1.1 - Header
+ 	- * 1.1.1 - Nav
+ - * 1.2 - Footer
+ * 2.0 - General
+ * 3.0 - News
+ * 4.0 - About
+*/
+
+/*--------1.0 - Base--------*/
+
+
+body {
+  font-family: 'Open Sans', monospace;
+  font-weight: 300;
+  background-color: #EEE;
+  margin: 0px;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/*--------1.1 - Header--------*/
+header {
+	overflow: hidden;
+	width: 100%;
+	background-color: #336699;
+	margin-bottom: 5%;
+	position: fixed;
+	z-index: 9999;
+}
+
+.lock-btn {
+    float: right;
+    width: 30px;
+    padding-top: 9px;
+    padding-right: 10px;
+}
+
+/*--------1.1.1 - Nav--------*/
+ul.nav {
+	list-style: none;
+	margin: 0 auto;
+	width: 400px;
+	padding: 0;
+}
+ul.nav li {
+	float: left;
+}
+.navTop {
+	float: left;
+	margin-left: 5%;
+	width: 400px;
+	overflow: hidden;
+}
+.navBtn {
+	display: block;
+	width: 100px;
+	height: 50px;
+	line-height: 50px;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	border-top: 4px solid #7094B8;
+	font-size: 15px;
+}
+.navBtn:hover {
+	background-color: #7094B8;
+	border-top: 4px solid white;
+	transition: background-color 0.5s ease, border-top 0.5s ease;
+}
+
+.navBtnCurrent {
+    display: block;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-top: 4px solid white;
+    font-size: 15px;
+}
+/*--------1.2 - Footer--------*/
+
+.footer {
+	text-align: center;
+	width: 100%;
+	height: 300px;
+	padding-top: 150px;
+    display: inline-block;
+}
+.footer hr {
+	width: 300px;
+	height: 1px;
+	opacity: 0.6;
+}
+.socialIcon {
+	opacity: 0.6;
+}
+.socialIcon:hover {
+	opacity: 1;
+}
+
+/*---------------------------2.0 - General----------------------------*/
+.box-shadow {
+	box-shadow: 0px 0px 5px #888888;
+}
+.noSelect {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.borderBox {
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+.space {
+	height: 30px;
+	display: block;
+	width: 40%;
+	float: right;
+}
+.whiteText {
+    color: white;
+}
+.centerText {
+	text-align: center;
+}
+
+.hide {
+    display: none;
+}
+.show-content {
+    display: inline;
+}
+.pointer {
+    cursor: pointer;
+}
+.center {
+    margin: auto;
+}
+.main-container {
+    width: 80%;
+    padding-top: 100px;
+}
+.white-space {
+    padding: 40px;
+}
+.fadedText {
+	opacity: 0.6;
+}
+/*------------------2.1 - Boxes --------------------*/
+.borderTop {
+	background-color: #7094B8;
+}
+.borderTop:hover {
+	cursor: pointer;
+}
+.box {
+	border: 1px solid #7094B8;
+	width: 100%;
+}
+.innerBox {
+	width: 100%;
+	border-top: 1px solid #7094B8;
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
+.innerBox:hover {
+	background-color: #D4DFEA;
+	transition: background-color 0.4s ease;
+}
+.sidebar {
+	width: 40%;
+	float: right;
+}
+.borderText {
+	padding: 0;
+	margin: 0;
+	font-size: 20px;
+}
+
+/*---------------------------3.0 - news----------------------------*/
+.article {
+    width: 90%;
+    background-color: white;
+    padding: 2px;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    padding-right: 20px;
+}
+.news-wrapper {
+    width: 60%;
+    float: left;
+}
+.horizontal-line {
+    border: 1px solid black;
+    opacity: 0.2;
+    margin: 0 auto;
+    padding: 0;
+
+}
+.article-title {
+    margin-bottom: 3px;
+}
+
+.articles-container {
+
+}
+
+.post-article {
+    padding: 2px;
+}
+
+.input-title {
+    width: 100%;
+    height: 30px;
+    display: block;
+    border: 1px solid #888;
+}
+.input-text {
+    border: 1px solid #888;
+    width: 100%;
+    display: block;
+    resize: none;
+}
+
+.input-btn {
+    display: block;
+}
+
+.submit-container {
+    margin-bottom: 20px;
+    width: 90%;
+    display: none;
+}
+.post-btn-image {
+    margin: 0 auto;
+    display: block;
+    padding-top: 16px;
+    width: 50%;
+
+}
+.post-btn-container {
+    border-radius: 150px;
+    width: 70px;
+    height: 70px;
+    background-color: white;
+    margin-bottom: 30px;
+
+}
+.post-btn-container:hover {
+    border: 1px solid #7094B8;
+}
+.post-btn-container:active {
+    box-shadow: none;
+}
+.display-article {
+    width: 80%;
+    padding: 30px;
+}
+
+/*---------4.0 - About------------*/
+.profile-picture {
+	border-radius: 150px;
+	width: 12%;
+	display: block;
+	border: 5px solid white;
+	position: absolute;
+
+}
+.about-text {
+	background-color: white;
+	width: 80%;
+	padding: 10px;
+	right: 0px;
+	position: absolute;
+}
+.about-container {
+	width: 65%;
+	height: 100px;
+	margin: 0 auto;
+	position: relative;
+    padding-top: 100px;
+}
+
+/*--------5.0 - Dashboard--------*/
+.tableWrapper {
+	width: 60%;
+	float: left;
+}
+.arrow {
+	width: 50px;
+}
+.socialIcon {
+	opacity: 0.6;
+}
+.socialIcon:hover {
+	opacity: 1;
+}
+td a img {
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	opacity: 1;
+	width: 150px;
+ 	transition: opacity 0.4s ease;
+ 	border: solid 5px white;
+}
+td a img:hover {
+	width: 150px;
+ 	opacity: 0.6;
+ 	border: none;
+ 	transition: opacity 0.4s ease;
+}
+
+.clock {
+	font-family: Cutive Mono;
+	font-size: 35px;
+	padding: 0;
+	margin: 0;
+}
+
+.searchBar {
+	width: 380px;
+	padding: 0;
+	height: 50px;
+	margin-left: 110px;
+	margin-bottom: 10px;
+	border: none;
+	border-radius: 0px;
+	border: 1px solid #CFCFCF;
+	font-size: 15px;
+}
+.searchBar:focus {
+        text-align: left;
+		border: 1px solid #336699;
+        padding-left: 10px;
+}
+.searchBarBtn {
+	width: 67px;
+	padding: 0;
+	height: 50px;
+	margin-bottom: 10px;
+	border-radius: 0px;
+	border: none;
+	background-color: #7094B8;
+	font-size: 20px;
+}
+.searchBarBtn:hover {
+	background-color: #336699;
+	cursor: pointer;
+}
+
+/*--------6 - Login--------------*/
+.login-name {
+    width: 60%;
+    height: 30px;
+    display: block;
+    margin-bottom: 20px;
+    border: 1px solid black;
+}
+.login-password {
+    width: 60%;
+    height: 30px;
+    display: block;
+    border: 1px solid black;
+}
+.login-container {
+    width: 30%;
+    background-color: white;
+    margin-top: 200px;
+    padding: 15px;
+}
+.login-btn {
+    border-radius: 0px;
+    background-color: #d9d9d9;
+    width: 100px;
+    height: 30px;
+    border: 1px solid black;
+    margin-top: 10px;
+    display: block;
+    font-weight: bold;
+}
+.login-btn:hover {
+    background-color: #999;
+}
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}

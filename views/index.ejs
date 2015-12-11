@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= title %></title>
+        <link rel='stylesheet' href='/stylesheets/style.css'>
+
+    </head>
+    <body>
+        <% include partials/header %>
+        <div class="main-container center">
+
+            <div class="row">
+                <div class="tableWrapper">
+                    <div class="row">
+                        <form method="get" action="http://www.google.no/search" target="_blank">
+                            <input id="searchBar" class="searchBar borderBox" type="text" name="q" maxlength="100" autofocus>
+                            <input class="searchBarBtn borderBox whiteText" type="submit" value="Go!">
+                        </form>
+                    </div>
+                     <table>
+                        <tr>
+                            <td><img class="arrow" src="icons/news.svg"><img class="arrow" src="icons/arrow.svg"></td>
+                            <td><a href="http://www.aftenposten.no/" target="_blank"><img src="images/aftenposten.png">
+                            <td><a href="http://www.vg.no" target ="_blank"><img src="images/vg.png" alt="VG"></a></td>
+                            <td><a href="http://www.theverge.com" target ="_blank"><img src="images/verge.png" alt="The Verge"></a></td>
+                        </tr>
+                        <tr>
+                            <td><img class="arrow" src="icons/school.svg"><img class="arrow"src="icons/arrow.svg"></td>
+                            <td><a href="https://innsida.ntnu.no/user/larsland" target="_blank"><img src="images/learning.png" alt="It's learning"></a></td>
+                            <td><a href="http://ntnu.1024.no/2015/fall/larsla/" target="_blank"><img src="images/timeplan.png" alt="Timeplan"></a></td>
+                            <td><a href="http://www.online.ntnu.no" target="_blank"><img src="images/online.png" alt="Online"></a></td>
+
+                        </tr>
+                        <tr>
+                            <td><img class="arrow" src="icons/share.svg"><img class="arrow"src="icons/arrow.svg"></td>
+                            <td><a href="http://www.facebook.com" target="_blank"><img src="images/facebook.png" alt="Facebook"></a></td>
+                            <td><a href="http://www.twitter.com" target="_blank"><img src="images/twitter.png" alt="Twitter"></a></td>
+                            <td><a href="http://www.instagram.com" target="_blank"><img src="images/instagram.png" alt="Instagram"></a></td>
+                        </tr>
+                        <tr>
+                            <td><img class="arrow" src="icons/reddit.svg"><img class="arrow"src="icons/arrow.svg"></td>
+                            <td class="image"><a href="http://www.reddit.com" target="_blank"><img src="images/reddit.png" alt="Reddit"></a></td>
+                            <td class="image"><a href="http://www.twitch.tv" target="_blank"><img src="images/twitch.png" alt="Twitch"></a></td>
+                            <td class="image"><a href="http://www.youtube.com" target="_blank"><img src="images/youtube.png" alt="Youtube"></a></td>
+                        </tr>
+                    </table>
+                </div>
+                <% include partials/sidebox %>
+            </div>
+        </div>
+        <% include partials/footer %>
+        <script src="/javascripts/clock.js"></script>
+        <script src="/javascripts/searchFocus.js"></script>
+        <script src="/javascripts/sidebar.js"></script>
+        <script src="/javascripts/navHighlight.js"></script>
+    </body>
+</html>
