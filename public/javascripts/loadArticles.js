@@ -9,7 +9,7 @@ function loadAllArticles(callback) {
         return xmlHttp.responseText;
     }
 
-    var allArticles = JSON.parse(httpGet("/api/articles")).reverse(); 
+    var allArticles = JSON.parse(httpGet("/api/articles")).reverse();
 
     for (var i = 0; i < allArticles.length; i++) {
         var div = document.createElement("DIV");

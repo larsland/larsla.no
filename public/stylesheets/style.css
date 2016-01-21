@@ -10,6 +10,7 @@
  * 2.0 - General
  * 3.0 - News
  * 4.0 - About
+ * 5.0 - Index
 */
 
 /*--------1.0 - Base--------*/
@@ -193,7 +194,7 @@ ul.nav li {
 
 /*---------------------------3.0 - news----------------------------*/
 .article {
-    width: 90%;
+    width: 100%;
     background-color: white;
     padding: 2px;
     padding-left: 20px;
@@ -201,15 +202,14 @@ ul.nav li {
     padding-right: 20px;
 }
 .news-wrapper {
-    width: 60%;
+    width: 100%;
     float: left;
 }
 .horizontal-line {
-    border: 1px solid black;
+    border-bottom: 1px solid black;
     opacity: 0.2;
     margin: 0 auto;
     padding: 0;
-
 }
 .article-title {
     margin-bottom: 3px;
@@ -398,4 +398,9 @@ td a img:hover {
 }
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+/*-----------------7 - Index------------------*/
+.calendar-wrapper {
+    width: 100%;
 }
