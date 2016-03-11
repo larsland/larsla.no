@@ -64,13 +64,13 @@ router.post('/api/articles', function(req, res, next) {
 
 
 /*---------------------User authentication---------------------------*/
-/*
+
 router.get('/register', function(req, res) {
     res.render('register', {
         title: 'register'
     });
 });
-*/
+
 
 
 router.post('/register', function(req, res) {
