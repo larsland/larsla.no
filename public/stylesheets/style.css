@@ -289,7 +289,7 @@ ul.nav li {
 /*---------4.0 - About------------*/
 .profile-picture {
 	border-radius: 150px;
-	width: 130px;
+	width: 170px;
 	display: block;
 	border: 5px solid white;
 	position: absolute;
@@ -301,6 +301,7 @@ ul.nav li {
 	padding: 10px;
 	right: 0px;
 	position: absolute;
+    font-size: 20px;
 }
 .about-container {
 	height: 100px;
@@ -380,8 +381,11 @@ td a img:hover {
 .gray-row {
     background-color: #7094B8;
     color: white;
-    margin-top: 130px;
-    margin-bot: 130px;
+    margin-top: 180px;
+    margin-bottom: 50px;
+    font-size: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 /*--------6 - Login--------------*/
@@ -426,7 +430,7 @@ input:-webkit-autofill {
     width: 100%;
 }
 .newsIcon {
-    width: 200px;
+    width: 250px;
 }
 
 .row-title {
