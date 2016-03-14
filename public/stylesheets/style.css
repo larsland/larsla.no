@@ -1,6 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 @import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:200);
 @import url(http://fonts.googleapis.com/css?family=Cutive+Mono);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
 
 /* Table of contents
  * 1.0 - Base
@@ -17,7 +18,7 @@
 
 
 body {
-  font-family: 'Open Sans', monospace;
+  font-family: 'Open Sans Condensed', monospace;
   font-weight: 300;
   background-color: #EEE;
   margin: 0px;
