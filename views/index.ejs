@@ -3,53 +3,37 @@
     <head>
         <title><%= title %></title>
         <link rel='stylesheet' href='/stylesheets/style.css'>
+        <script src="/javascripts/loadTitles.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     </head>
     <body>
         <% include partials/header %>
         <div class="main-container center">
-            <div class="row">
-                <div class="tableWrapper">
-                    <div class="row">
-                        <form method="get" action="http://www.google.no/search" target="_blank">
-                            <input id="searchBar" class="searchBar borderBox" type="text" name="q" maxlength="100" autofocus>
-                            <input class="searchBarBtn borderBox whiteText" type="submit" value="Go!">
-                        </form>
-                    </div>
-                     <table>
-                        <tr>
-                            <td><img class="arrow" src="icons/news.svg"><img class="arrow" src="icons/arrow.svg"></td>
-                            <td><a href="http://www.aftenposten.no/" target="_blank"><img src="images/aftenposten.png">
-                            <td><a href="http://www.vg.no" target ="_blank"><img src="images/vg.png" alt="VG"></a></td>
-                            <td><a href="http://www.theverge.com" target ="_blank"><img src="images/verge.png" alt="The Verge"></a></td>
-                        </tr>
-                        <tr>
-                            <td><img class="arrow" src="icons/school.svg"><img class="arrow"src="icons/arrow.svg"></td>
-                            <td><a href="https://innsida.ntnu.no/user/larsland" target="_blank"><img src="images/learning.png" alt="It's learning"></a></td>
-                            <td><a href="http://ntnu.1024.no/2015/fall/larsla/" target="_blank"><img src="images/timeplan.png" alt="Timeplan"></a></td>
-                            <td><a href="http://www.online.ntnu.no" target="_blank"><img src="images/online.png" alt="Online"></a></td>
-
-                        </tr>
-                        <tr>
-                            <td><img class="arrow" src="icons/share.svg"><img class="arrow"src="icons/arrow.svg"></td>
-                            <td><a href="http://www.facebook.com" target="_blank"><img src="images/facebook.png" alt="Facebook"></a></td>
-                            <td><a href="http://www.twitter.com" target="_blank"><img src="images/twitter.png" alt="Twitter"></a></td>
-                            <td><a href="http://www.instagram.com" target="_blank"><img src="images/instagram.png" alt="Instagram"></a></td>
-                        </tr>
-                        <tr>
-                            <td><img class="arrow" src="icons/reddit.svg"><img class="arrow"src="icons/arrow.svg"></td>
-                            <td class="image"><a href="http://www.reddit.com" target="_blank"><img src="images/reddit.png" alt="Reddit"></a></td>
-                            <td class="image"><a href="http://www.twitch.tv" target="_blank"><img src="images/twitch.png" alt="Twitch"></a></td>
-                            <td class="image"><a href="http://www.youtube.com" target="_blank"><img src="images/youtube.png" alt="Youtube"></a></td>
-                        </tr>
-                    </table>
-                </div>
-                <% include partials/sidebox %>
+            <div class="about-container">
+            	<img class="profile-picture" src="images/profilepic.jpg">
+            	<div class="about-text box-shadow">
+            		<h1>Hello world!</h1>
+            		<p>I'm Lars. I study informatics at NTNU. The purpose of this site is simply for me to practice webtechnologies, and keep my curious readers updated interesting things I come over, or cool stuff that happens.</p>
+            	</div>
             </div>
         </div>
+        <div class="gray-row box-shadow">
+            <div class="row-container center">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id odio convallis, tincidunt sapien sit amet, malesuada lorem. Vivamus viverra imperdiet lectus. Nulla facilisi. Morbi venenatis ac ante eget imperdiet. Aenean vel velit et nisl maximus laoreet sed eu velit. Etiam posuere metus eget diam eleifend, vel tincidunt mi egestas. Nullam luctus dui nunc, at iaculis leo ultricies at. Vestibulum et urna vitae risus rutrum feugiat. Aliquam nulla risus, consectetur et purus ullamcorper, aliquet imperdiet neque. Suspendisse lacinia pharetra libero eget imperdiet. Curabitur ut porttitor nulla. Etiam tincidunt, urna et suscipit ultricies, nisi elit ultricies nunc, vel viverra risus metus eget dolor. Praesent a arcu vel dui iaculis semper sed nec nisl. Curabitur a felis at magna commodo ultrices malesuada id ex. Quisque vestibulum, felis eget scelerisque feugiat, velit nibh scelerisque lorem, vel scelerisque risus ante eu mi. In orci tortor, placerat molestie ornare quis, finibus non augue.
+            </div>
+        </div>
+        <div class="row-container center">
+            <div class="row-title">Latest articles</div>
+            <div style="width: 70%;" id="articlesContainer" class="articles-container left"></div>
+            <img class="newsIcon right" src="/images/newsIconReverted.png">
+        </div>
+        <div style="clear: both;"></div>
+
         <% include partials/footer %>
         <script src="/javascripts/clock.js"></script>
         <script src="/javascripts/searchFocus.js"></script>
         <script src="/javascripts/navHighlight.js"></script>
         <script src="/javascripts/sidebar.js"></script>
+        <script src="/javascripts/marked.js"></script>
     </body>
 </html>
