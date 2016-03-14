@@ -162,6 +162,12 @@ ul.nav li {
 .fadedText {
 	opacity: 0.6;
 }
+
+.row-container {
+    width: 80%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 /*------------------2.1 - Boxes --------------------*/
 .borderTop {
 	background-color: #7094B8;
@@ -275,7 +281,7 @@ ul.nav li {
 /*---------4.0 - About------------*/
 .profile-picture {
 	border-radius: 150px;
-	width: 12%;
+	width: 130px;
 	display: block;
 	border: 5px solid white;
 	position: absolute;
@@ -289,11 +295,10 @@ ul.nav li {
 	position: absolute;
 }
 .about-container {
-	width: 65%;
 	height: 100px;
 	margin: 0 auto;
 	position: relative;
-    padding-top: 100px;
+    margin-bottom: 100px;
 }
 
 /*--------5.0 - Dashboard--------*/
@@ -362,6 +367,11 @@ td a img:hover {
 .searchBarBtn:hover {
 	background-color: #336699;
 	cursor: pointer;
+}
+
+.gray-row {
+    background-color: #7094B8;
+    color: white;
 }
 
 /*--------6 - Login--------------*/

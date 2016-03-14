@@ -10,19 +10,11 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', {
-      title: 'larsla:news',
+  res.render('index1', {
+      title: 'larsla:home',
       user: req.user
   });
 });
-
-/* GET about page. */
-router.get('/about', function(req, res, next) {
-    res.render('about', {
-        title: 'larsla:about',
-        user: req.user
-    })
-})
 
 /* GET news page. */
 router.get('/news', function(req, res, next) {
