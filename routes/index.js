@@ -45,13 +45,15 @@ router.get('/api/articles', function(req, res, next) {
 /* POST a new article */
 router.post('/api/articles', function(req, res, next) {
   var article = new Article(req.body);
-
-  article.save(function(err, article){
-    if(err){
-        return next(err);
-    }
-    res.json(article);
-  });
+  if (req.isAuthenticated()) {
+      article.save(function(err, article){
+        if(err){
+            return next(err);
+        }
+        res.json(article);
+      });
+  }
+  else {console.log("Screw you, malicious user")}
 });
 
 
