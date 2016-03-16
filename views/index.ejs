@@ -19,7 +19,18 @@
         </div>
         <div class="gray-row box-shadow">
             <div class="row-container center">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id odio convallis, tincidunt sapien sit amet, malesuada lorem. Vivamus viverra imperdiet lectus. Nulla facilisi. Morbi venenatis ac ante eget imperdiet. Aenean vel velit et nisl maximus laoreet sed eu velit. Etiam posuere metus eget diam eleifend, vel tincidunt mi egestas. Nullam luctus dui nunc, at iaculis leo ultricies at. Vestibulum et urna vitae risus rutrum feugiat. Aliquam nulla risus, consectetur et purus ullamcorper, aliquet imperdiet neque. Suspendisse lacinia pharetra libero eget imperdiet. Curabitur ut porttitor nulla. Etiam tincidunt, urna et suscipit ultricies, nisi elit ultricies nunc, vel viverra risus metus eget dolor. Praesent a arcu vel dui iaculis semper sed nec nisl. Curabitur a felis at magna commodo ultrices malesuada id ex. Quisque vestibulum, felis eget scelerisque feugiat, velit nibh scelerisque lorem, vel scelerisque risus ante eu mi. In orci tortor, placerat molestie ornare quis, finibus non augue.
+                <div style="width:50%" class="inline centerText">
+                    <p class="clock" id="time"></p>
+                    <p class="clock" id="date"></p>
+                    <p class="clock" id="weekday"></p>
+                    <p class="clock" id="week"></p>
+                </div>
+                <div style="width:50%" class="right centerText">
+                    <p class="clock" id="name"></p>
+                    <p class="clock" id="temperature"></p>
+                    <p class="clock" id="condition"></p>
+                </div>
+
             </div>
         </div>
         <div class="row-container center">
@@ -31,9 +42,7 @@
 
         <% include partials/footer %>
         <script src="/javascripts/clock.js"></script>
-        <script src="/javascripts/searchFocus.js"></script>
-        <script src="/javascripts/navHighlight.js"></script>
-        <script src="/javascripts/sidebar.js"></script>
         <script src="/javascripts/marked.js"></script>
+        <script src="/javascripts/weather.js"></script>
     </body>
 </html>
