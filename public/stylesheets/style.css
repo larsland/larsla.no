@@ -470,8 +470,10 @@ input:-webkit-autofill {
         display: block;
         position: inherit;
         margin: auto;
+        margin-bottom: 50px;
+        width: 200px;
     }
     .about-container {
-        margin-bottom: 400px;
+        margin-bottom: 500px;
     }
 }
