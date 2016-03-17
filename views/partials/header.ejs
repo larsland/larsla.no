@@ -7,7 +7,7 @@
         </ul>
     </nav>
     <% if(user) { %>
-    <a href="/logout"><img class="lock-btn" src="icons/unlocked.svg"></a>
+    <a href="/logout"><div class="auth-container auth-container-logged-in"><img class="lock-btn" src="icons/unlocked.svg"></a></div>
     <% } else { %>
     <a href="/login"><div class="auth-container"><img class="lock-btn" src="icons/lock.svg"></a></div>
     <% } %>

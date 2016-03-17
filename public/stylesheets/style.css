@@ -39,18 +39,28 @@ header {
 }
 
 .lock-btn {
-    float: right;
-    width: 30px;
     padding-top: 9px;
-    padding-right: 10px;
+    width:100%;
 }
-/*
+
 .auth-container {
     float: right;
     width: 30px;
-    padding-right: 10px;
+    display: block;
+    border-top: 4px solid #7094B8;;
+    padding-left: 11px;
+    margin-right: 10px;
+    height: 50px;
 }
-*/
+.auth-container-logged-in {
+    border-top: 4px solid white;
+}
+.auth-container:hover {
+    background-color: #7094B8;
+    border-top: 4px solid white;
+    transition: background-color 0.5s ease, border-top 0.5s ease;
+}
+
 
 /*--------1.1.1 - Nav--------*/
 ul.nav {
