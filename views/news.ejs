@@ -33,7 +33,9 @@
             </div>
         </div>
         <% include partials/footer %>
+        <% if(user) { %>
         <script src="/javascripts/post-btn.js"></script>
+        <% } else {}%>
         <script src="/javascripts/marked.js"></script>
         <script src="/javascripts/highlightNav.js"></script>
     </body>

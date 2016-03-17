@@ -8,5 +8,3 @@ if (url == 'news') {
 else if (url == '') {
     homeBtn.className = "navBtnCurrent"
 }
-
-console.log(url)
