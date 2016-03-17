@@ -402,6 +402,13 @@ td a img:hover {
     padding-bottom: 30px;
 }
 
+.weather-icon {
+    width: 50px;
+    border: 1px solid white;
+    border-radius: 150px;
+    display: inline-block;
+}
+
 /*--------6 - Login--------------*/
 .login-name {
     width: 60%;
