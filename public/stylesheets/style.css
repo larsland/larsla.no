@@ -244,13 +244,6 @@ ul.nav li {
     margin: 0 auto;
     padding: 0;
 }
-.article-title {
-    /*margin-bottom: 3px;*/
-}
-
-.articles-container {
-
-}
 
 .post-article {
     padding: 2px;
@@ -304,6 +297,10 @@ ul.nav li {
     padding: 30px;
 }
 
+.article-titles-container {
+    width: 70%;
+}
+
 /*---------4.0 - About------------*/
 .profile-picture {
 	border-radius: 150px;
@@ -325,7 +322,7 @@ ul.nav li {
 	height: 100px;
 	margin: 0 auto;
 	position: relative;
-    margin-bottom: 100px;
+    margin-bottom: 250px;
 }
 
 /*--------5.0 - Dashboard--------*/
@@ -454,4 +451,27 @@ input:-webkit-autofill {
     font-size: 30px;
     margin-bottom: 30px;
     margin-top: 30px;
+}
+
+
+
+/*----------------Media queries----------------*/
+@media only screen and (orientation: portrait) and (max-device-width: 376px) and (min-width: 300px) {
+	.newsIcon {
+        display: none;
+    }
+    .article-titles-container {
+        width: 100%;
+    }
+    .about-text {
+        width: 100%;
+    }
+    .profile-picture {
+        display: block;
+        position: inherit;
+        margin: auto;
+    }
+    .about-container {
+        margin-bottom: 400px;
+    }
 }

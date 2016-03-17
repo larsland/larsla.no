@@ -15,7 +15,7 @@ function loadWeather(callback) {
 
     var mainWeatherDescription = data.weather[0].main;
     var subWeatherDescription = data.weather[0].description;
-    var temperatureData = Number(parseInt(data.main.temp) - 273.15).toFixed(2)
+    var temperatureData = Number(parseInt(data.main.temp) - 273).toFixed(2)
     var nameData = data.name
 
     weatherCondition.innerHTML = (mainWeatherDescription + ' ' + '(' + subWeatherDescription + ')');
