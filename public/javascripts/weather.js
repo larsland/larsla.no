@@ -21,8 +21,6 @@ function loadWeather(callback) {
     weatherCondition.innerHTML = (mainWeatherDescription + ' ' + '(' + subWeatherDescription + ')');
     temperature.innerHTML = temperatureData + '&degC';
     name.innerHTML = nameData;
-
-    console.log(data)
 }
 
 window.addEventListener('load', loadWeather)
