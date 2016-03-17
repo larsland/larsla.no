@@ -9,7 +9,7 @@ function loadAllArticles(callback) {
         return xmlHttp.responseText;
     }
 
-    var allArticles = JSON.parse(httpGet("/api/articles")).reverse().slice(0, 4);
+    var allArticles = JSON.parse(httpGet("/api/articles")).reverse().slice(0, 3);
 
     for (var i = 0; i < allArticles.length; i++) {
         var div = document.createElement("DIV");
@@ -23,7 +23,11 @@ function loadAllArticles(callback) {
         h3.name = 'article-title';
 
         div.appendChild(h3);
-        div.className = "article box-shadow borderBox";
+        div.className = "article box-shadow borderBox pointer";
+        div.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = '/news'
+        })
         container.appendChild(div);
     }
 }
