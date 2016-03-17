@@ -33,7 +33,11 @@ function loadAllArticles() {
             h3.name = 'article-title';
 
             div.appendChild(h3);
-            div.className = "article box-shadow borderBox";
+            div.className = "article box-shadow borderBox pointer";
+            div.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = "/news"
+            })
             container.appendChild(div);
         }
     }
