@@ -26,6 +26,7 @@ function loadAllArticles() {
             var p = document.createElement("P");
             var h3 = document.createElement("H2");
             var line = document.createElement("DIV");
+            var remove = document.createElement("a")
 
             var title = allArticles[i].title
             var content = allArticles[i].content
@@ -37,7 +38,14 @@ function loadAllArticles() {
             p.innerHTML = marked(content);
             p.id = 'content'+i
             line.className = "horizontal-line";
+            remove.innerHTML = "Delete";
+            remove.className = "right"
+            remove.addEventListener('click', function(e) {
+                e.preventDefault;
+                
+            })
 
+            div.appendChild(remove);
             div.appendChild(h3);
             div.appendChild(line);
             div.appendChild(p);

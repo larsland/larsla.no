@@ -3,7 +3,6 @@
     <head>
         <title><%= title %></title>
         <link rel='stylesheet' href='/stylesheets/style.css'>
-        <link rel="shortcut icon" href="/icons/favicon.png">
         <script src='/javascripts/loadArticles.js'></script>
         <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     </head>
@@ -22,9 +21,11 @@
                     </div>
                     <div class="submit-container" id="submit-container">
                         <form action="/api/articles" method="POST" target="dummyframe">
-                            <input id="titleField" class="input-title center" type="text" name="title" placeholder="title"></input><br>
-                            <textarea id="contentField" rows=10 class="input-text center" name="content" placeholder="content"></textarea><br>
-                            <input type="submit" class="input-btn right"></submit>
+                            <p>Title:</p>
+                            <input id="titleField" class="input-title center" type="text" name="title"></input><br>
+                            <p>Content:</p>
+                            <textarea id="contentField" rows=15 class="input-text center" name="content"></textarea><br>
+                            <input id="submit-btn" type="submit" value="Post" class="input-btn right pointer">
                             <iframe style="display:none" width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
                         </form>
                     </div>
@@ -38,5 +39,6 @@
         <% } else {}%>
         <script src="/javascripts/marked.js"></script>
         <script src="/javascripts/highlightNav.js"></script>
+        <script src="/javascripts/postValidator.js"></script>
     </body>
 </html>
