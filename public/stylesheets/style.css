@@ -9,13 +9,16 @@
  	- * 1.1.1 - Nav
  - * 1.2 - Footer
  * 2.0 - General
- * 3.0 - News
- * 4.0 - About
- * 5.0 - Index
+ * 3.0 - Home
+ - * 3.1 - About
+ - * 3.2 - Blue bar
+ - * 3.3 - Latest articles
+ * 4.0 - News
+ * 5.0 - Login
+ * 6.0 - Media queries
 */
 
-/*--------1.0 - Base--------*/
-
+/*------------------------------------1.0 - Base------------------------------------*/
 
 body {
   font-family: 'Open Sans Condensed', monospace;
@@ -28,14 +31,15 @@ a {
   color: #00B7FF;
 }
 
-/*--------1.1 - Header--------*/
+/*------------------------------------1.1 - Header------------------------------------*/
+
 header {
-	overflow: hidden;
-	width: 100%;
-	background-color: #336699;
-	margin-bottom: 5%;
-	position: fixed;
-	z-index: 9999;
+    overflow: hidden;
+    width: 100%;
+    background-color: #336699;
+    margin-bottom: 5%;
+    position: fixed;
+    z-index: 9999;
 }
 
 .lock-btn {
@@ -61,38 +65,38 @@ header {
     transition: background-color 0.5s ease, border-top 0.5s ease;
 }
 
+/*------------------------------------1.1.1 - Nav------------------------------------*/
 
-/*--------1.1.1 - Nav--------*/
 ul.nav {
-	list-style: none;
-	margin: 0 auto;
-	width: 400px;
-	padding: 0;
+    list-style: none;
+    margin: 0 auto;
+    width: 400px;
+    padding: 0;
 }
 ul.nav li {
-	float: left;
+    float: left;
 }
 .navTop {
-	float: left;
-	margin-left: 5%;
-	width: 400px;
-	overflow: hidden;
+    float: left;
+    margin-left: 5%;
+    width: 400px;
+    overflow: hidden;
 }
 .navBtn {
-	display: block;
-	width: 100px;
-	height: 50px;
-	line-height: 50px;
-	color: white;
-	text-decoration: none;
-	text-align: center;
-	border-top: 4px solid #7094B8;
-	font-size: 15px;
+    display: block;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-top: 4px solid #7094B8;
+    font-size: 15px;
 }
 .navBtn:hover {
-	background-color: #7094B8;
-	border-top: 4px solid white;
-	transition: background-color 0.5s ease, border-top 0.5s ease;
+    background-color: #7094B8;
+    border-top: 4px solid white;
+    transition: background-color 0.5s ease, border-top 0.5s ease;
 }
 
 .navBtnCurrent {
@@ -107,30 +111,31 @@ ul.nav li {
     font-size: 15px;
 }
 
-/*--------1.2 - Footer--------*/
+/*------------------------------------1.2 - Footer------------------------------------*/
 
 .footer {
-	text-align: center;
-	width: 100%;
-	height: 300px;
-	padding-top: 150px;
+    text-align: center;
+    width: 100%;
+    height: 300px;
+    padding-top: 150px;
     display: inline-block;
 }
 .footer hr {
-	width: 300px;
-	height: 1px;
-	opacity: 0.6;
+    width: 300px;
+    height: 1px;
+    opacity: 0.6;
 }
 .socialIcon {
-	opacity: 0.6;
+    opacity: 0.6;
 }
 .socialIcon:hover {
-	opacity: 1;
+    opacity: 1;
 }
 
-/*---------------------------2.0 - General----------------------------*/
+/*------------------------------------2.0 - General------------------------------------*/
+
 .box-shadow {
-	box-shadow: 0px 0px 5px #888888;
+    box-shadow: 0px 0px 5px #888888;
 }
 .right {
     float: right;
@@ -139,29 +144,29 @@ ul.nav li {
     float: left;
 }
 .noSelect {
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .borderBox {
-	box-sizing:border-box;
-	-moz-box-sizing:border-box;
-	-webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
 }
 .space {
-	height: 30px;
-	display: block;
-	width: 40%;
-	float: right;
+    height: 30px;
+    display: block;
+    width: 40%;
+    float: right;
 }
 .whiteText {
     color: white;
 }
 .centerText {
-	text-align: center;
+    text-align: center;
 }
 
 .hide {
@@ -184,7 +189,7 @@ ul.nav li {
     padding: 40px;
 }
 .fadedText {
-	opacity: 0.6;
+    opacity: 0.6;
 }
 .row-container {
     width: 80%;
@@ -194,38 +199,73 @@ ul.nav li {
 .inline {
     display: inline-block;
 }
-/*------------------2.1 - Boxes --------------------*/
-.borderTop {
-	background-color: #7094B8;
+
+/*------------------------------------3.0 - Home------------------------------------*/
+
+/*------------------------------------3.1 - About------------------------------------*/
+
+.profile-picture {
+    border-radius: 150px;
+    width: 170px;
+    display: block;
+    border: 5px solid white;
+    position: absolute;
+
 }
-.borderTop:hover {
-	cursor: pointer;
+.about-text {
+    background-color: white;
+    width: 80%;
+    padding: 10px;
+    right: 0px;
+    position: absolute;
+    font-size: 20px;
 }
-.box {
-	border: 1px solid #7094B8;
-	width: 100%;
-}
-.innerBox {
-	width: 100%;
-	border-top: 1px solid #7094B8;
-	padding-bottom: 20px;
-	padding-top: 20px;
-}
-.innerBox:hover {
-	background-color: #D4DFEA;
-	transition: background-color 0.4s ease;
-}
-.sidebar {
-	width: 40%;
-	float: right;
-}
-.borderText {
-	padding: 0;
-	margin: 0;
-	font-size: 20px;
+.about-container {
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 250px;
 }
 
-/*---------------------------3.0 - news----------------------------*/
+/*------------------------------------3.2 - Blue bar------------------------------------*/
+
+.clock {
+    font-size: 35px;
+    padding: 0;
+    margin: 0;
+}
+
+.gray-row {
+    background-color: #7094B8;
+    color: white;
+    margin-top: 180px;
+    margin-bottom: 50px;
+    font-size: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.weather-icon {
+    width: 50px;
+    border: 1px solid white;
+    border-radius: 150px;
+    display: inline-block;
+}
+
+/*------------------------------------3.3 - Latest articles------------------------------------*/
+
+.newsIcon {
+    width: 250px;
+}
+
+.row-title {
+    font-size: 30px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+/*------------------------------------4.0 - News------------------------------------*/
+
 .article {
     width: 100%;
     background-color: white;
@@ -264,11 +304,17 @@ ul.nav li {
 
 .input-btn {
     display: block;
+    width: 70px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid #888;
+}
+.input-btn:hover {
+    background-color: #999;
 }
 
 .submit-container {
-    margin-bottom: 20px;
-    width: 90%;
+    margin-bottom: 70px;
     display: none;
 }
 .post-btn-image {
@@ -301,115 +347,8 @@ ul.nav li {
     width: 70%;
 }
 
-/*---------4.0 - About------------*/
-.profile-picture {
-	border-radius: 150px;
-	width: 170px;
-	display: block;
-	border: 5px solid white;
-	position: absolute;
+/*------------------------------------5.0 - Login------------------------------------*/
 
-}
-.about-text {
-	background-color: white;
-	width: 80%;
-	padding: 10px;
-	right: 0px;
-	position: absolute;
-    font-size: 20px;
-}
-.about-container {
-	height: 100px;
-	margin: 0 auto;
-	position: relative;
-    margin-bottom: 250px;
-}
-
-/*--------5.0 - Dashboard--------*/
-.tableWrapper {
-	width: 60%;
-	float: left;
-}
-.arrow {
-	width: 50px;
-}
-.socialIcon {
-	opacity: 0.6;
-}
-.socialIcon:hover {
-	opacity: 1;
-}
-td a img {
-	box-sizing:border-box;
-	-moz-box-sizing:border-box;
-	-webkit-box-sizing:border-box;
-	opacity: 1;
-	width: 150px;
- 	transition: opacity 0.4s ease;
- 	border: solid 5px white;
-}
-td a img:hover {
-	width: 150px;
- 	opacity: 0.6;
- 	border: none;
- 	transition: opacity 0.4s ease;
-}
-
-.clock {
-	font-size: 35px;
-	padding: 0;
-	margin: 0;
-}
-
-.searchBar {
-	width: 380px;
-	padding: 0;
-	height: 50px;
-	margin-left: 110px;
-	margin-bottom: 10px;
-	border: none;
-	border-radius: 0px;
-	border: 1px solid #CFCFCF;
-	font-size: 15px;
-}
-.searchBar:focus {
-        text-align: left;
-		border: 1px solid #336699;
-        padding-left: 10px;
-}
-.searchBarBtn {
-	width: 67px;
-	padding: 0;
-	height: 50px;
-	margin-bottom: 10px;
-	border-radius: 0px;
-	border: none;
-	background-color: #7094B8;
-	font-size: 20px;
-}
-.searchBarBtn:hover {
-	background-color: #336699;
-	cursor: pointer;
-}
-
-.gray-row {
-    background-color: #7094B8;
-    color: white;
-    margin-top: 180px;
-    margin-bottom: 50px;
-    font-size: 20px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
-
-.weather-icon {
-    width: 50px;
-    border: 1px solid white;
-    border-radius: 150px;
-    display: inline-block;
-}
-
-/*--------6 - Login--------------*/
 .login-name {
     width: 60%;
     height: 30px;
@@ -446,23 +385,8 @@ input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
 
-/*-----------------7 - Index------------------*/
-.calendar-wrapper {
-    width: 100%;
-}
-.newsIcon {
-    width: 250px;
-}
+/*------------------------------------6.0 - Media queries------------------------------------*/
 
-.row-title {
-    font-size: 30px;
-    margin-bottom: 30px;
-    margin-top: 30px;
-}
-
-
-
-/*----------------Media queries----------------*/
 @media only screen and (orientation: portrait) and (max-device-width: 376px) and (min-width: 300px) {
 	.newsIcon {
         display: none;
