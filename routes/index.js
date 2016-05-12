@@ -39,7 +39,16 @@ router.get('/api/articles', function(req, res, next) {
         }
         res.json(articles);
     })
+})
 
+/* GET a single article */
+router.get('/api/articles/:_id', function(req, res, next) {
+    Article.findById(req.params._id, function(err, article) {
+        if (err) {
+            res.send(err);
+        }
+        res.json(article);
+    })
 })
 
 /* POST a new article */
@@ -55,6 +64,20 @@ router.post('/api/articles', function(req, res, next) {
   }
   else {console.log("Screw you, malicious user")}
 });
+
+/* DELETE a single article */
+router.delete('/api/articles/:_id', function(req, res) {
+        Article.remove({_id: req.params._id},
+            function(err, article) {
+                if (err) {
+                    res.end(err);
+                }
+            res.json({ message: 'Successfully deleted!'})
+        })
+
+})
+
+
 
 
 /*---------------------User authentication---------------------------*/
