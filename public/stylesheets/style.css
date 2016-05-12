@@ -29,6 +29,10 @@ body {
 
 a {
   color: #00B7FF;
+  text-decoration: none;
+}
+a:hover {
+    color: #336699;
 }
 
 /*------------------------------------1.1 - Header------------------------------------*/
@@ -198,6 +202,9 @@ ul.nav li {
 }
 .inline {
     display: inline-block;
+}
+.space-left {
+    margin-left: 10px;
 }
 
 /*------------------------------------3.0 - Home------------------------------------*/

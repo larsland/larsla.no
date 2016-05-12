@@ -62,11 +62,29 @@ router.post('/api/articles', function(req, res, next) {
         res.json(article);
       });
   }
-  else {console.log("Screw you, malicious user")}
+  else {console.log("Not authorized")}
 });
+
+/* PUT an article */
+router.put('/api/articles/:_id', function(req, res) {
+    Article.findById(req.params._id, function(err, article) {
+        if (err) {
+            res.send(err);
+        }
+        article.title = req.body.title;
+        article.content = req.body.content;
+        article.save(function(err) {
+            if (err) {
+                res.send(err);
+            }
+            res.json({ message: 'Article updated!'})
+        })
+    })
+})
 
 /* DELETE a single article */
 router.delete('/api/articles/:_id', function(req, res) {
+    if (req.isAuthenticated()) {
         Article.remove({_id: req.params._id},
             function(err, article) {
                 if (err) {
@@ -74,7 +92,8 @@ router.delete('/api/articles/:_id', function(req, res) {
                 }
             res.json({ message: 'Successfully deleted!'})
         })
-
+    }
+    else {console.log("Not authorized")}
 })
 
 

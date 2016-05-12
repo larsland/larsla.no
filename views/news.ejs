@@ -29,6 +29,16 @@
                             <iframe style="display:none" width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
                         </form>
                     </div>
+                    <div class="submit-container" id="edit-container">
+                        <form action="/api/articles/5734dbda96896004412ddb87" method="PUT" target="dummyframe">
+                            <p>Title:</p>
+                            <input id="editTitleField" class="input-title center" type="text" name="title"></input><br>
+                            <p>Content:</p>
+                            <textarea id="editContentField" rows=15 class="input-text center" name="content"></textarea><br>
+                            <input id="submit-btn" type="submit" value="Edit" class="input-btn right pointer">
+                            <iframe style="display:none" width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
+                        </form>
+                    </div>
                     <div id="articlesContainer" class="articles-container"></div>
                 </div>
             </div>
@@ -40,6 +50,5 @@
         <script src="/javascripts/marked.js"></script>
         <script src="/javascripts/highlightNav.js"></script>
         <script src="/javascripts/postValidator.js"></script>
-        <script src="/javascripts/deleteArticle.js"></script>
     </body>
 </html>
