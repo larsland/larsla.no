@@ -66,11 +66,21 @@ function loadAllArticles() {
             edit.addEventListener('click', function(e) {
                 e.preventDefault();
                 var form = document.getElementById('edit-container');
-                var editTitleField = document.getElementById('editTitleField');
-
-                console.log(e.target.nextSibling.innerHTML)
                 form.style.display = form.style.display == "block" ? "none" : "block";
-                editTitleField.innerHTML = e.target.nextSibling.innerHTML
+                var editTitleField = document.getElementById('editTitleField');
+                var editContentField = document.getElementById('editContentField');
+
+                var getTexts = function(callback) {
+                    console.log(e.target.nextSibling.innerHTML)
+                    var editTitleText = e.target.nextSibling.innerHTML
+                    var editContentText = e.target.nextSibling.nextSibling.nextSibling.childNodes[0].innerHTML
+                    callback(editTitleText, editContentText)
+                }
+                var fillTexts = function(tit, con) {
+                    editTitleField.value = tit;
+                    editContentField.innerHTML = con;
+                }
+                getTexts(fillTexts)
             })
 
             div.appendChild(remove);

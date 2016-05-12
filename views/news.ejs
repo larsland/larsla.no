@@ -35,7 +35,8 @@
                             <input id="editTitleField" class="input-title center" type="text" name="title"></input><br>
                             <p>Content:</p>
                             <textarea id="editContentField" rows=15 class="input-text center" name="content"></textarea><br>
-                            <input id="submit-btn" type="submit" value="Edit" class="input-btn right pointer">
+                            <input id="edit-submit-btn" type="submit" value="Edit" class="input-btn right pointer">
+                            <button id="cancel-edit-btn" type="button" class="input-btn right pointer">Cancel</button>
                             <iframe style="display:none" width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
                         </form>
                     </div>
@@ -50,5 +51,6 @@
         <script src="/javascripts/marked.js"></script>
         <script src="/javascripts/highlightNav.js"></script>
         <script src="/javascripts/postValidator.js"></script>
+        <script src="/javascripts/buttonListeners.js"></script>
     </body>
 </html>

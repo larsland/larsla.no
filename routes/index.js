@@ -67,19 +67,23 @@ router.post('/api/articles', function(req, res, next) {
 
 /* PUT an article */
 router.put('/api/articles/:_id', function(req, res) {
-    Article.findById(req.params._id, function(err, article) {
-        if (err) {
-            res.send(err);
-        }
-        article.title = req.body.title;
-        article.content = req.body.content;
-        article.save(function(err) {
+    if (req.isAuthenticated()) {
+        Article.findById(req.params._id, function(err, article) {
             if (err) {
                 res.send(err);
             }
-            res.json({ message: 'Article updated!'})
+            article.title = req.body.title;
+            article.content = req.body.content;
+            article.save(function(err) {
+                if (err) {
+                    res.send(err);
+                }
+                res.json({ message: 'Article updated!'})
+            })
         })
-    })
+    }
+    else {console.log("Not authenticated")}
+
 })
 
 /* DELETE a single article */
