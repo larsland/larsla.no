@@ -20,6 +20,24 @@ function loadAllArticles() {
         xmlHttp.send(null);
     }
 
+    var httpRemove = function(url, callback) {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("DELETE", url, true);
+        xmlHttp.onload = function(e) {
+            if (xmlHttp.readyState === 4) {
+                if (xmlHttp.status === 200) {
+                    callback(xmlHttp.responseText)
+                } else {
+                    console.error(xmlHttp.statusText);
+                }
+            }
+        }
+        xmlHttp.onerror = function(e) {
+            console.error(xmlHttp.statusText)
+        }
+        xmlHttp.send(null);
+    }
+
     var renderArticles = function(allArticles) {
         for (var i = 0; i < allArticles.length; i++) {
             var div = document.createElement("DIV");
@@ -42,7 +60,9 @@ function loadAllArticles() {
             remove.className = "right"
             remove.addEventListener('click', function(e) {
                 e.preventDefault;
-                
+                httpRemove('/api/articles', renderArticles)
+
+
             })
 
             div.appendChild(remove);

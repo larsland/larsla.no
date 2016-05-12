@@ -235,7 +235,7 @@ ul.nav li {
     margin: 0;
 }
 
-.gray-row {
+.blue-row {
     background-color: #7094B8;
     color: white;
     margin-top: 180px;
@@ -284,11 +284,9 @@ ul.nav li {
     margin: 0 auto;
     padding: 0;
 }
-
 .post-article {
     padding: 2px;
 }
-
 .input-title {
     width: 100%;
     height: 30px;
@@ -301,7 +299,6 @@ ul.nav li {
     display: block;
     resize: none;
 }
-
 .input-btn {
     display: block;
     width: 70px;
@@ -312,7 +309,6 @@ ul.nav li {
 .input-btn:hover {
     background-color: #999;
 }
-
 .submit-container {
     margin-bottom: 70px;
     display: none;
@@ -322,7 +318,6 @@ ul.nav li {
     display: block;
     padding-top: 16px;
     width: 50%;
-
 }
 .post-btn-container {
     border-radius: 150px;
@@ -330,7 +325,6 @@ ul.nav li {
     height: 70px;
     background-color: white;
     margin-bottom: 30px;
-
 }
 .post-btn-container:hover {
     border: 1px solid #7094B8;
@@ -342,22 +336,14 @@ ul.nav li {
     width: 80%;
     padding: 30px;
 }
-
 .article-titles-container {
     width: 70%;
 }
 
 /*------------------------------------5.0 - Login------------------------------------*/
 
-.login-name {
-    width: 60%;
-    height: 30px;
-    display: block;
-    margin-bottom: 20px;
-    border: 1px solid black;
-}
-.login-password {
-    width: 60%;
+.login-field {
+    width: 100%;
     height: 30px;
     display: block;
     border: 1px solid black;
@@ -367,6 +353,8 @@ ul.nav li {
     background-color: white;
     margin-top: 200px;
     padding: 15px;
+    padding-left: 80px;
+    padding-right: 80px;
 }
 .login-btn {
     border-radius: 0px;

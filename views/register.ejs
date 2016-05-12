@@ -5,10 +5,15 @@
         <link rel='stylesheet' href='/stylesheets/style.css'>
     </head>
     <body>
-        <form action="/register" method="post">
-            <input type="text" name="username">
-            <input type="password" name="password">
-            <input type="submit">
-        </form>
+        <div class="login-container box-shadow center">
+            <h2 class="centerText">Register:</h2>
+            <form action="/register" method="post">
+                <p>Username:</p>
+                <input class="login-field center" type="text" name="username">
+                <p>Password:</p>
+                <input class="login-field center" type="password" name="password">
+                <input class="login-btn center pointer" type="submit">
+            </form>
+        </div>
     </body>
 </html>
