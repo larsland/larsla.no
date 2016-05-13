@@ -31,9 +31,6 @@ a {
   color: #00B7FF;
   text-decoration: none;
 }
-a:hover {
-    color: #336699;
-}
 
 /*------------------------------------1.1 - Header------------------------------------*/
 
@@ -402,4 +399,12 @@ input:-webkit-autofill {
     .about-container {
         margin-bottom: 500px;
     }
+}
+
+@media only screen and (orientation: landscape) and (max-device-width: 1025px) and (min-width: 1000px) {
+    .about-container {
+        width: 50%;
+    }
+
+
 }

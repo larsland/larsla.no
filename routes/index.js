@@ -67,7 +67,7 @@ router.post('/api/articles', function(req, res, next) {
 
 /* PUT an article */
 router.put('/api/articles/:_id', function(req, res) {
-    if (req.isAuthenticated()) {
+    //if (req.isAuthenticated()) {
         Article.findById(req.params._id, function(err, article) {
             if (err) {
                 res.send(err);
@@ -81,8 +81,8 @@ router.put('/api/articles/:_id', function(req, res) {
                 res.json({ message: 'Article updated!'})
             })
         })
-    }
-    else {console.log("Not authenticated")}
+    //}
+    //else {console.log("Not authenticated")}
 
 })
 
