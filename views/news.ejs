@@ -29,18 +29,6 @@
                             <iframe style="display:none" width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
                         </form>
                     </div>
-                    <div class="submit-container" id="edit-container">
-                        <form action="/api/articlesed " method="POST" target="dummyframe">
-                            <p>Title:</p>
-                            <input id="editTitleField" class="input-title center" type="text" name="title"></input><br>
-                            <p>Content:</p>
-                            <textarea id="editContentField" rows=15 class="input-text center" name="content"></textarea><br>
-                            <input id="edit-submit-btn" type="submit" value="Edit" class="input-btn right pointer">
-                            <button id="cancel-edit-btn" type="button" class="input-btn right pointer" onclick="hideEditArticleContainer()">Cancel</button>
-                            <iframe style="display:none" width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
-                        </form>
-                    </div>
-
                     <div class="articles-container">
                     <% for(var i = 0; i < articles.length; i++) { %>
                         <div class="article box-shadow border-box">
@@ -49,27 +37,23 @@
                                 <input type="hidden" value="<%= articles[i]._id %>">
                                 delete
                             </a>
-                            <a id="editArticle" class="right" href="">edit</a>
+                            <!--<a id="editArticle" class="right" href="">edit</a>-->
                             <% } %>
                             <h3><%= articles[i].title %></h3>
                             <div class="horizontal-line"></div>
-                            <p id="article-content"><%= articles[i].content %></p>
+                            <p name="article-content"><%= articles[i].content %></p>
                         </div>
                     <% } %>
                     </div>
-
                 </div>
             </div>
         </div>
         <% include partials/footer %>
         <script src="/javascripts/highlightNav.js"></script>
         <script src="/javascripts/postValidator.js"></script>
-        <script>
-            var test = document.getElementById("article-content");
-            test.innerHTML = marked(test.innerHTML);
-        </script>
         <% if(user) { %>
         <script src="/javascripts/privateListeners.js"></script>
         <% } %>
+        <script src="/javascripts/updateMarkdown.js"></script>
     </body>
 </html>

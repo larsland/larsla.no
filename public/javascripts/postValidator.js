@@ -10,6 +10,7 @@ checkPost = function() {
 	}
 
 	postArticleForm.style.display = postArticleForm.style.display == "block" ? "none" : "block";
+	updateMarkdown();
 }
 
 submitBtn.addEventListener('click', checkPost)

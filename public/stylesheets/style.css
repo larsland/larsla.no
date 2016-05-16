@@ -153,7 +153,7 @@ ul.nav li {
     -ms-user-select: none;
     user-select: none;
 }
-.borderBox {
+.border-box {
     box-sizing:border-box;
     -moz-box-sizing:border-box;
     -webkit-box-sizing:border-box;
@@ -203,6 +203,16 @@ ul.nav li {
 }
 .space-left {
     margin-left: 10px;
+}
+.message-box {
+    height: 100px;
+    width: 30%;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+.warning {
+    background-color: #ff4d4d;
 }
 
 /*------------------------------------3.0 - Home------------------------------------*/
@@ -278,6 +288,9 @@ ul.nav li {
     padding-left: 20px;
     margin-bottom: 10px;
     padding-right: 20px;
+}
+.articles-container {
+    width: 100%;
 }
 .news-wrapper {
     width: 100%;
@@ -356,7 +369,6 @@ ul.nav li {
 .login-container {
     width: 30%;
     background-color: white;
-    margin-top: 200px;
     padding: 15px;
     padding-left: 80px;
     padding-right: 80px;

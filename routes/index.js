@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
         res.render('index', {
             title: 'larsla:home',
             user: req.user,
-            articles: articles.reverse()
+            articles: articles.reverse().slice(0, 5)
         })
     })
 });
@@ -140,7 +140,8 @@ router.delete('/api/articles/:_id', function(req, res) {
 /*
 router.get('/register', function(req, res) {
     res.render('register', {
-        title: 'register'
+        title: 'register',
+        user: req.user
     });
 });
 
@@ -155,7 +156,6 @@ router.post('/register', function(req, res) {
     });
 });
 */
-
 
 router.get('/login', function(req, res) {
     res.render('login', {
