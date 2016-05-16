@@ -67,7 +67,28 @@ router.post('/api/articles', function(req, res, next) {
 
 /* PUT an article */
 router.put('/api/articles/:_id', function(req, res) {
-    //if (req.isAuthenticated()) {
+    console.log("EDIT")
+    if (req.isAuthenticated()) {
+        Article.findById(req.params._id, function(err, article) {
+            if (err) {
+                res.send(err);
+            }
+            article.title = req.body.edit-title;
+            article.content = req.body.edit-content;
+            article.save(function(err) {
+                if (err) {
+                    res.send(err);
+                }
+                res.json({ message: 'Article updated!'})
+            })
+        })
+    }
+    else {console.log("Not authenticated")}
+})
+
+router.post('/api/articles/:_id', function(req, res) {
+    console.log("EDIT")
+    if (req.isAuthenticated()) {
         Article.findById(req.params._id, function(err, article) {
             if (err) {
                 res.send(err);
@@ -81,9 +102,8 @@ router.put('/api/articles/:_id', function(req, res) {
                 res.json({ message: 'Article updated!'})
             })
         })
-    //}
-    //else {console.log("Not authenticated")}
-
+    }
+    else {console.log("Not authenticated")}
 })
 
 /* DELETE a single article */

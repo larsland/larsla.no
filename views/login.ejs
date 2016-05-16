@@ -5,6 +5,7 @@
         <link rel='stylesheet' href='/stylesheets/style.css'>
     </head>
     <body>
+        <% include partials/header %>
         <div class="login-container box-shadow center">
             <h2 class="centerText">Login:</h2>
             <form action="/login" method="post">
@@ -15,5 +16,6 @@
                 <input class="login-btn center pointer" type="submit" value="OK">
             </form>
         </div>
+        <% include partials/footer %>
     </body>
 </html>
