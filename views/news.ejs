@@ -3,8 +3,8 @@
     <head>
         <title><%= title %></title>
         <link rel='stylesheet' href='/stylesheets/style.css'>
-        <script src='/javascripts/loadArticles.js'></script>
         <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="/javascripts/marked.js"></script>
     </head>
     <body>
         <% include partials/header %>
@@ -36,21 +36,40 @@
                             <p>Content:</p>
                             <textarea id="editContentField" rows=15 class="input-text center" name="content"></textarea><br>
                             <input id="edit-submit-btn" type="submit" value="Edit" class="input-btn right pointer">
-                            <button id="cancel-edit-btn" type="button" class="input-btn right pointer">Cancel</button>
+                            <button id="cancel-edit-btn" type="button" class="input-btn right pointer" onclick="hideEditArticleContainer()">Cancel</button>
                             <iframe style="display:none" width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
                         </form>
                     </div>
-                    <div id="articlesContainer" class="articles-container"></div>
+
+                    <div class="articles-container">
+                    <% for(var i = 0; i < articles.length; i++) { %>
+                        <div class="article box-shadow border-box">
+                            <% if(user) { %>
+                            <a id="removeArticle" class="right space-left" href="">
+                                <input type="hidden" value="<%= articles[i]._id %>">
+                                delete
+                            </a>
+                            <a id="editArticle" class="right" href="">edit</a>
+                            <% } %>
+                            <h3><%= articles[i].title %></h3>
+                            <div class="horizontal-line"></div>
+                            <p id="article-content"><%= articles[i].content %></p>
+                        </div>
+                    <% } %>
+                    </div>
+
                 </div>
             </div>
         </div>
         <% include partials/footer %>
-        <% if(user) { %>
-        <script src="/javascripts/post-btn.js"></script>
-        <% } else {}%>
-        <script src="/javascripts/marked.js"></script>
         <script src="/javascripts/highlightNav.js"></script>
         <script src="/javascripts/postValidator.js"></script>
-        <script src="/javascripts/buttonListeners.js"></script>
+        <script>
+            var test = document.getElementById("article-content");
+            test.innerHTML = marked(test.innerHTML);
+        </script>
+        <% if(user) { %>
+        <script src="/javascripts/privateListeners.js"></script>
+        <% } %>
     </body>
 </html>

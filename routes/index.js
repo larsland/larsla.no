@@ -10,17 +10,29 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', {
-      title: 'larsla:home',
-      user: req.user
-  });
+    Article.find({}, function(err, articles) {
+        if (err) {
+            return next(err);
+        }
+        res.render('index', {
+            title: 'larsla:home',
+            user: req.user,
+            articles: articles.reverse()
+        })
+    })
 });
 
 /* GET news page. */
 router.get('/news', function(req, res, next) {
-    res.render('news', {
-        title: 'larsla:news',
-        user: req.user
+    Article.find({}, function(err, articles) {
+        if (err) {
+            return next(err);
+        }
+        res.render('news', {
+            title: 'larsla:news',
+            user: req.user,
+            articles: articles.reverse()
+        })
     })
 })
 
