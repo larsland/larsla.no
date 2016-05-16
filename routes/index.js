@@ -6,8 +6,6 @@ var Article = mongoose.model('Article');
 var fs = require('fs');
 var router = express.Router();
 
-
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
     Article.find({}, function(err, articles) {
@@ -98,26 +96,6 @@ router.put('/api/articles/:_id', function(req, res) {
     else {console.log("Not authenticated")}
 })
 
-router.post('/api/articles/:_id', function(req, res) {
-    console.log("EDIT")
-    if (req.isAuthenticated()) {
-        Article.findById(req.params._id, function(err, article) {
-            if (err) {
-                res.send(err);
-            }
-            article.title = req.body.title;
-            article.content = req.body.content;
-            article.save(function(err) {
-                if (err) {
-                    res.send(err);
-                }
-                res.json({ message: 'Article updated!'})
-            })
-        })
-    }
-    else {console.log("Not authenticated")}
-})
-
 /* DELETE a single article */
 router.delete('/api/articles/:_id', function(req, res) {
     if (req.isAuthenticated()) {
@@ -131,9 +109,6 @@ router.delete('/api/articles/:_id', function(req, res) {
     }
     else {console.log("Not authorized")}
 })
-
-
-
 
 /*---------------------User authentication---------------------------*/
 
