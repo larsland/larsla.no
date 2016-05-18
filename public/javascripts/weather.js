@@ -1,5 +1,4 @@
 function loadWeather() {
-
     var weatherCondition = document.getElementById('condition');
     var temperature = document.getElementById('temperature');
     var name = document.getElementById('name');
@@ -35,7 +34,6 @@ function loadWeather() {
         name.innerHTML = nameData;
         weatherIcon.src = "http://openweathermap.org/img/w/" + icon + '.png'
     }
-
     httpGet('http://api.openweathermap.org/data/2.5/weather?id=3133881&appid=be55e41ee85013c7d884355794cb9f6d', renderWeather);
 }
 

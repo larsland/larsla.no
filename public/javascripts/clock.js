@@ -10,15 +10,15 @@ function setTime() {
 			sec = "0" + sec
 		}
 		if (min < 10) {
-			min = "0" + sec
+			min = "0" + min
 		}
 		if (hour < 10) {
-			hour = "0" + sec
+			hour = "0" + hour
 		}
 		return hour + ':' + min + ':' + sec
 	}
 
-	var string = formatTime(hour, min, sec) 
+	var string = formatTime(hour, min, sec)
 	paragraph.innerHTML = string
 }
 
@@ -30,13 +30,13 @@ function setDate() {
 	var insertWeek = document.getElementById('week')
 	var time = new Date()
 	var day = time.getDay()
-	var dayOfMonth = time.getUTCDate() 
+	var dayOfMonth = time.getUTCDate()
 	var weekday = checkWeekday(day)
 	var month = time.getUTCMonth() + 1
-	var year = time.getUTCFullYear() 
-	var weekOfYear = time.getWeek() 
+	var year = time.getUTCFullYear()
+	var weekOfYear = time.getWeek()
 
-	var string = dayOfMonth + '/' + month + '/' + year 
+	var string = dayOfMonth + '/' + month + '/' + year
 
 	insertDate.innerHTML = string
 	insertWeekday.innerHTML = weekday
@@ -51,11 +51,10 @@ function checkWeekday(day) {
 Date.prototype.getWeek = function() {
 	var onejan = new Date(this.getFullYear(),0,1);
 	return Math.ceil((((this - onejan) / 86400000) + onejan.getDay())/7);
-} 
+}
 
 window.addEventListener('load', function(e) {
 	setTime()
 	setDate()
 	setInterval(function(){ setTime() }, 1000)
-}) 
-
+})
