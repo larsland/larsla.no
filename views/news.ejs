@@ -39,7 +39,8 @@
                             </a>
                             <!--<a id="editArticle" class="right" href="">edit</a>-->
                             <% } %>
-                            <h3><%= articles[i].title %></h3>
+                            <a style="display:none"><%= articles[i]._id %></a>
+                            <h3 name="article-links"><a href=""><%= articles[i].title %></a></h3>
                             <div class="horizontal-line"></div>
                             <p name="article-content"><%= articles[i].content %></p>
                         </div>
@@ -55,5 +56,17 @@
         <script src="/javascripts/privateListeners.js"></script>
         <% } %>
         <script src="/javascripts/updateMarkdown.js"></script>
+        <script src="/javascripts/publicListeners.js"></script>
+        <script>
+            var articleLinks = document.getElementsByName('article-links')
+            for (var i = 0; i < articleLinks.length; i++) {
+                articleLinks[i].addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var id = this.previousSibling.previousSibling.innerHTML
+                    var link = "/news/" + id;
+                    location.href="/news/" + id
+                })
+            }
+        </script>
     </body>
 </html>

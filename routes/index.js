@@ -34,6 +34,20 @@ router.get('/news', function(req, res, next) {
     })
 })
 
+/* GET news/article page. */
+router.get('/news/:_id', function(req, res, next) {
+    Article.findById(req.params._id, function(err, article) {
+        if (err) {
+            return next(err);
+        }
+        res.render('article', {
+            title: 'larsla:news',
+            user: req.user,
+            article: article
+        })
+    })
+})
+
 /* GET cv page. */
 router.get('/cv', function(req, res, next){
     res.render('cv', {
