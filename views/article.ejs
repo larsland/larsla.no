@@ -8,9 +8,10 @@
     <body>
         <% include partials/header %>
         <div class="main-container center">
-            <button onclick="removeArticleFromFull('<%= article._id %>')" class="input-btn right">Delete</button>
-            <button style="margin-right: 10px" id="open-edit-article-btn" onclick="toggleEditArticleForm()" class="input-btn right">Edit</button>
-
+            <% if(user) { %>
+                <button onclick="removeArticleFromFull('<%= article._id %>')" class="input-btn right">Delete</button>
+                <button style="margin-right: 10px" id="open-edit-article-btn" onclick="toggleEditArticleForm()" class="input-btn right">Edit</button>
+            <% } %>
             <p class="date-field"><%= article.createdAt %></p>
             <h1><%= article.title %></h1>
             <p name="article-ingress"><%= article.ingress %></p>
