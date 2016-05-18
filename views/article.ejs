@@ -22,11 +22,11 @@
                 <h3>Edit article:</h3>
                 <form action="/api/articles/<%= article._id %>" method="POST" target="dummyframe">
                     <p>Title:</p>
-                    <input class="input-title center border-box" type="text" name="title"></input><br>
+                    <input class="input-title center border-box" value="<%= article.title %>" type="text" name="title"></input><br>
                     <p>Ingress:</p>
-                    <input class="input-title center border-box" type="text" name="ingress"></input><br>
+                    <input class="input-title center border-box" value="<%= article.ingress %>" type="text" name="ingress"></input><br>
                     <p>Content:</p>
-                    <textarea rows=15 class="input-text center border-box" name="content"></textarea><br>
+                    <textarea rows=15 class="input-text center border-box" name="content"><%= article.content %></textarea><br>
                     <input onclick="toggleEditArticleForm()" type="submit" value="Post" class="input-btn right pointer">
                     <iframe style="display:none" width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
                 </form>
