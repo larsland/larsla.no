@@ -65,6 +65,12 @@ header {
     border-top: 4px solid white;
     transition: background-color 0.5s ease, border-top 0.5s ease;
 }
+.header-user {
+    color: white;
+    float: right;
+    margin-top: 15px;
+    margin-right: 20px;
+}
 
 /*------------------------------------1.1.1 - Nav------------------------------------*/
 
@@ -356,6 +362,10 @@ ul.nav li {
 }
 .article-titles-container {
     width: 70%;
+}
+.date-field {
+    color: gray;
+    font-style: italic;
 }
 
 /*------------------------------------5.0 - Login------------------------------------*/

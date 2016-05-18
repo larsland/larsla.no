@@ -1,13 +1,18 @@
+<!DOCTYPE html>
 <html>
     <head>
+        <title><%= title %></title>
         <link rel='stylesheet' href='/stylesheets/style.css'>
         <script src="/javascripts/marked.js"></script>
     </head>
     <body>
+        <% include partials/header %>
         <div class="main-container center">
+            <p class="date-field"><%= article.createdAt %></p>
             <h1><%= article.title %></h1>
             <p name="article-content"><%= article.content %></p>
         </div>
+        <% include partials/footer %>
         <script src="/javascripts/updateMarkdown.js"></script>
     </body>
 </html>

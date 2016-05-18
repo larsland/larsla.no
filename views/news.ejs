@@ -33,11 +33,10 @@
                     <% for(var i = 0; i < articles.length; i++) { %>
                         <div class="article box-shadow border-box">
                             <% if(user) { %>
-                            <a id="removeArticle" class="right space-left" href="">
+                            <a onclick="removeArticle()" id="removeArticle" class="right space-left" href="">
                                 <input type="hidden" value="<%= articles[i]._id %>">
                                 delete
                             </a>
-                            <!--<a id="editArticle" class="right" href="">edit</a>-->
                             <% } %>
                             <a style="display:none"><%= articles[i]._id %></a>
                             <h3 name="article-links"><a href=""><%= articles[i].title %></a></h3>
@@ -56,7 +55,6 @@
         <script src="/javascripts/privateListeners.js"></script>
         <% } %>
         <script src="/javascripts/updateMarkdown.js"></script>
-        <script src="/javascripts/publicListeners.js"></script>
         <script>
             var articleLinks = document.getElementsByName('article-links')
             for (var i = 0; i < articleLinks.length; i++) {

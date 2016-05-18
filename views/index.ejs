@@ -40,7 +40,8 @@
             <div class="row-title">Latest articles</div>
             <div class="articles-container article-titles-container left">
             <% for(var i = 0; i < articles.length; i++) { %>
-                <div id="articleTitle" class="article box-shadow borderBox pointer">
+                <a style="display:none"><%= articles[i]._id %></a>
+                <div name="article-titles" id="articleTitle" class="article box-shadow borderBox pointer">
                     <h3 class="article-title"><%= articles[i].title %></h3>
                 </div>
             <% } %>
@@ -55,5 +56,16 @@
         <script src="/javascripts/weather.js"></script>
         <script src="/javascripts/highlightNav.js"></script>
         <script src="/javascripts/publicListeners.js"></script>
+        <script>
+            var articleLinks = document.getElementsByName('article-titles')
+            for (var i = 0; i < articleLinks.length; i++) {
+                articleLinks[i].addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var id = this.previousSibling.previousSibling.innerHTML
+                    var link = "/news/" + id;
+                    location.href="/news/" + id
+                })
+            }
+        </script>
     </body>
 </html>
