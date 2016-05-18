@@ -8,11 +8,34 @@
     <body>
         <% include partials/header %>
         <div class="main-container center">
+            <button onclick="removeArticleFromFull('<%= article._id %>')" class="input-btn right">Delete</button>
+            <button style="margin-right: 10px" id="open-edit-article-btn" onclick="toggleEditArticleForm()" class="input-btn right">Edit</button>
+
             <p class="date-field"><%= article.createdAt %></p>
             <h1><%= article.title %></h1>
+            <p name="article-ingress"><%= article.ingress %></p>
             <p name="article-content"><%= article.content %></p>
+
+
+            <div id="edit-article-form">
+                <div class="horizontal-line"></div>
+                <h3>Edit article:</h3>
+                <form action="/api/articles/<%= article._id %>" method="POST" target="dummyframe">
+                    <p>Title:</p>
+                    <input class="input-title center border-box" type="text" name="title"></input><br>
+                    <p>Ingress:</p>
+                    <input class="input-title center border-box" type="text" name="ingress"></input><br>
+                    <p>Content:</p>
+                    <textarea rows=15 class="input-text center border-box" name="content"></textarea><br>
+                    <input onclick="toggleEditArticleForm()" type="submit" value="Post" class="input-btn right pointer">
+                    <iframe style="display:none" width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
+                </form>
+                <button onclick="toggleEditArticleForm()" style="margin-right: 10px" class="input-btn right">Cancel</button>
+            </div>
+
         </div>
         <% include partials/footer %>
         <script src="/javascripts/updateMarkdown.js"></script>
+        <script src="/javascripts/privateListeners.js"></script>
     </body>
 </html>

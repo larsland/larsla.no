@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 
 var ArticleSchema = new mongoose.Schema({
     title: String,
+    ingress: String,
     content: String
 },
 {

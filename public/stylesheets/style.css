@@ -316,6 +316,7 @@ ul.nav li {
     height: 30px;
     display: block;
     border: 1px solid #888;
+    padding: 5px;
 }
 .input-text {
     border: 1px solid #888;
@@ -349,6 +350,9 @@ ul.nav li {
     height: 70px;
     background-color: white;
     margin-bottom: 30px;
+    position: fixed;
+    right: 20px;
+    top: 90px;
 }
 .post-btn-container:hover {
     border: 1px solid #7094B8;
@@ -366,6 +370,9 @@ ul.nav li {
 .date-field {
     color: gray;
     font-style: italic;
+}
+#edit-article-form {
+    display: none
 }
 
 /*------------------------------------5.0 - Login------------------------------------*/

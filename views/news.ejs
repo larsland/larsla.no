@@ -13,7 +13,7 @@
                 <div class="news-wrapper">
                     <div>
                         <% if(user) { %>
-                        <div class="post-btn-container borderBox box-shadow pointer center noSelect" id="post-btn">
+                        <div onclick="togglePostArticleForm()" class="post-btn-container border-box box-shadow pointer center noSelect" id="post-btn">
                             <img class="post-btn-image noSelect" src="icons/pencil2.svg">
                         </div>
                         <% } else {%>
@@ -23,6 +23,8 @@
                         <form action="/api/articles" method="POST" target="dummyframe">
                             <p>Title:</p>
                             <input id="titleField" class="input-title center" type="text" name="title"></input><br>
+                            <p>Ingress:</p>
+                            <input class="input-title center" type="text" name="ingress"></input><br>
                             <p>Content:</p>
                             <textarea id="contentField" rows=15 class="input-text center" name="content"></textarea><br>
                             <input id="submit-btn" type="submit" value="Post" class="input-btn right pointer">
@@ -33,7 +35,7 @@
                     <% for(var i = 0; i < articles.length; i++) { %>
                         <div class="article box-shadow border-box">
                             <% if(user) { %>
-                            <a onclick="removeArticle()" id="removeArticle" class="right space-left" href="">
+                            <a onclick="removeArticleFromPreview()" id="removeArticle" class="right space-left" href="">
                                 <input type="hidden" value="<%= articles[i]._id %>">
                                 delete
                             </a>
@@ -41,7 +43,7 @@
                             <a style="display:none"><%= articles[i]._id %></a>
                             <h3 name="article-links"><a href=""><%= articles[i].title %></a></h3>
                             <div class="horizontal-line"></div>
-                            <p name="article-content"><%= articles[i].content %></p>
+                            <p name="article-ingress"><%= articles[i].ingress %></p>
                         </div>
                     <% } %>
                     </div>

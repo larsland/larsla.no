@@ -78,6 +78,7 @@ router.get('/api/articles/:_id', function(req, res, next) {
 /* POST a new article */
 router.post('/api/articles', function(req, res, next) {
   var article = new Article(req.body);
+
   if (req.isAuthenticated()) {
       article.save(function(err, article){
         if(err){
@@ -89,16 +90,16 @@ router.post('/api/articles', function(req, res, next) {
   else {console.log("Not authorized")}
 });
 
-/* PUT an article */
-router.put('/api/articles/:_id', function(req, res) {
-    console.log("EDIT")
+/* POST edit to an article (works as PUT request)*/
+router.post('/api/articles/:_id', function(req, res) {
     if (req.isAuthenticated()) {
         Article.findById(req.params._id, function(err, article) {
             if (err) {
                 res.send(err);
             }
-            article.title = req.body.edit-title;
-            article.content = req.body.edit-content;
+            article.title = req.body.title;
+            article.ingress = req.body.ingress;
+            article.content = req.body.content;
             article.save(function(err) {
                 if (err) {
                     res.send(err);
