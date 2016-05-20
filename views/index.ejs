@@ -3,31 +3,34 @@
     <head>
         <title><%= title %></title>
         <link rel='stylesheet' href='/stylesheets/style.css'>
-        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     </head>
     <body>
         <% include partials/header %>
         <div class="main-container center">
             <div class="about-container">
-            	<img class="profile-picture" src="images/profilepic.jpg">
-            	<div class="about-text box-shadow">
-            		<h1>Hello world!</h1>
-            		<p>I'm Lars. I study informatics at NTNU. The purpose of this site is simply for me to practice webtechnologies, amd post interesting things I come over, or cool stuff that happens.</p>
-                    <a href="https://github.com/larsland" target="_blank"><img class="socialIcon" src="/icons/github.svg"></a>
-                    <a href="https://www.linkedin.com/profile/view?id=324148398&trk=nav_responsive_tab_profile_pic" target="_blank"><img class="socialIcon" src="/icons/linkedin.svg"></a>
-                    <a href="https://twitter.com/LarsLA_" target="_blank"><img class="socialIcon" src="/icons/twitter.svg"></a>
-            	</div>
+                <div class="profile-picture-container">
+                    <img class="profile-picture" src="images/profilepic.jpg">
+                </div>
+                <div class="about-text-container">
+                    <div class="about-text box-shadow">
+                		<h1>Hello world!</h1>
+                		<p>I'm Lars. I study informatics at NTNU. The purpose of this site is simply for me to practice webtechnologies, amd post interesting things I come over, or cool stuff that happens.</p>
+                        <a href="https://github.com/larsland" target="_blank"><img class="socialIcon" src="/icons/github.svg"></a>
+                        <a href="https://www.linkedin.com/profile/view?id=324148398&trk=nav_responsive_tab_profile_pic" target="_blank"><img class="socialIcon" src="/icons/linkedin.svg"></a>
+                        <a href="https://twitter.com/LarsLA_" target="_blank"><img class="socialIcon" src="/icons/twitter.svg"></a>
+                	</div>
+                </div>
             </div>
         </div>
         <div class="blue-row">
             <div class="row-container center">
-                <div style="width:50%" class="inline centerText">
+                <div class="half-box inline centerText">
                     <p class="clock" id="time"></p>
                     <p class="clock" id="weekday"></p>
                     <p class="clock" id="date"></p>
                     <p class="clock" id="week"></p>
                 </div>
-                <div style="width:50%" class="right centerText">
+                <div class="half-box right centerText">
                     <p class="clock" id="name"></p>
                     <p class="clock" id="temperature"></p>
                     <p class="clock" id="condition"></p>
@@ -40,33 +43,21 @@
             <div class="row-title">Latest articles</div>
             <div class="articles-container article-titles-container left">
             <% for(var i = 0; i < articles.length; i++) { %>
-                <a style="display:none"><%= articles[i]._id %></a>
+                <a class="hide"><%= articles[i]._id %></a>
                 <div name="article-titles" id="articleTitle" class="article box-shadow borderBox pointer">
                     <h3 class="article-title"><%= articles[i].title %></h3>
                 </div>
             <% } %>
             </div>
-            <div style="width:40%; display: inline-block">
+            <div class="box-40 inline">
                 <img class="newsIcon right" src="/images/newsIconReverted.png">
             </div>
         </div>
-        <div style="clear: both;"></div>
 
         <% include partials/footer %>
         <script src="/javascripts/clock.js"></script>
-        <script src="/javascripts/marked.js"></script>
         <script src="/javascripts/weather.js"></script>
         <script src="/javascripts/highlightNav.js"></script>
-        <script>
-            var articleLinks = document.getElementsByName('article-titles')
-            for (var i = 0; i < articleLinks.length; i++) {
-                articleLinks[i].addEventListener('click', function(e) {
-                    e.preventDefault();
-                    var id = this.previousSibling.previousSibling.innerHTML
-                    var link = "/news/" + id;
-                    location.href="/news/" + id
-                })
-            }
-        </script>
+        <script src="/javascripts/addArticleLinks.js"></script>
     </body>
 </html>

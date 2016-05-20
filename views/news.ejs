@@ -41,7 +41,7 @@
                             </a>
                             <% } %>
                             <a style="display:none"><%= articles[i]._id %></a>
-                            <h3 name="article-links"><a href=""><%= articles[i].title %></a></h3>
+                            <h3 name="article-titles"><a href=""><%= articles[i].title %></a></h3>
                             <div class="horizontal-line"></div>
                             <p name="article-ingress"><%= articles[i].ingress %></p>
                         </div>
@@ -53,20 +53,10 @@
         <% include partials/footer %>
         <script src="/javascripts/highlightNav.js"></script>
         <script src="/javascripts/postValidator.js"></script>
+        <script src="/javascripts/updateMarkdown.js"></script>
+        <script src="/javascripts/addArticleLinks.js"></script>
         <% if(user) { %>
         <script src="/javascripts/privateListeners.js"></script>
         <% } %>
-        <script src="/javascripts/updateMarkdown.js"></script>
-        <script>
-            var articleLinks = document.getElementsByName('article-links')
-            for (var i = 0; i < articleLinks.length; i++) {
-                articleLinks[i].addEventListener('click', function(e) {
-                    e.preventDefault();
-                    var id = this.previousSibling.previousSibling.innerHTML
-                    var link = "/news/" + id;
-                    location.href="/news/" + id
-                })
-            }
-        </script>
     </body>
 </html>

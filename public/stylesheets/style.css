@@ -142,7 +142,6 @@ ul.nav li {
 /*------------------------------------2.0 - General------------------------------------*/
 
 .box-shadow {
-
     box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
 }
 .right {
@@ -176,7 +175,6 @@ ul.nav li {
 .centerText {
     text-align: center;
 }
-
 .hide {
     display: none;
 }
@@ -192,6 +190,12 @@ ul.nav li {
 .main-container {
     width: 80%;
     padding-top: 130px;
+}
+.half-box {
+    width: 50%;
+}
+.box-40 {
+    width: 40%;
 }
 .white-space {
     padding: 40px;
@@ -224,27 +228,29 @@ ul.nav li {
 /*------------------------------------3.0 - Home------------------------------------*/
 
 /*------------------------------------3.1 - About------------------------------------*/
-
+.profile-picture-container {
+    width: 20%;
+    float: left;
+}
 .profile-picture {
     border-radius: 150px;
-    width: 170px;
+    width: 80%;
     display: block;
     border: 5px solid white;
-    position: absolute;
-
+}
+.about-text-container {
+    width: 80%;
+    display: inline-block;
 }
 .about-text {
     background-color: white;
-    width: 80%;
     padding: 10px;
     right: 0px;
-    position: absolute;
     font-size: 20px;
 }
 .about-container {
     height: 100px;
     margin: 0 auto;
-    position: relative;
     margin-bottom: 250px;
 }
 
@@ -276,7 +282,7 @@ ul.nav li {
 /*------------------------------------3.3 - Latest articles------------------------------------*/
 
 .newsIcon {
-    width: 250px;
+    width: 60%;
 }
 
 .row-title {
