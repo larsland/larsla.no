@@ -127,7 +127,7 @@ router.delete('/api/articles/:_id', function(req, res) {
 
 /*---------------------User authentication---------------------------*/
 
-/*
+
 router.get('/register', function(req, res) {
     res.render('register', {
         title: 'register',
@@ -136,7 +136,11 @@ router.get('/register', function(req, res) {
 });
 
 router.post('/register', function(req, res) {
-    User.register(new User({ username : req.body.username }), req.body.password, function(err, User) {
+    User.register(new User({
+        username : req.body.username,
+        name: req.body.name,
+        surname: req.body.surname
+    }), req.body.password, function(err, User) {
         if (err) {
             return res.render('register', { User : User });
         }
@@ -145,7 +149,7 @@ router.post('/register', function(req, res) {
         });
     });
 });
-*/
+
 
 
 router.get('/login', function(req, res) {
@@ -155,7 +159,7 @@ router.get('/login', function(req, res) {
      });
 });
 
-router.post('/login', passport.authenticate('local'), function(req, res) {G
+router.post('/login', passport.authenticate('local'), function(req, res) {
     res.redirect('/');
 });
 
