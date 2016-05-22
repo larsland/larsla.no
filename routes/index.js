@@ -79,7 +79,7 @@ router.get('/api/articles/:_id', function(req, res, next) {
 router.post('/api/articles', function(req, res, next) {
   var article = new Article(req.body);
 
-  if (req.isAuthenticated()) {
+  if ((req.user.username === 'lille') && (req.isAuthenticated())) {
       article.save(function(err, article){
         if(err){
             return next(err);

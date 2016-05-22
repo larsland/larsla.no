@@ -9,8 +9,10 @@
         <% include partials/header %>
         <div class="main-container center">
             <% if(user) { %>
+                <% if(user.username === 'lille') { %>
                 <button onclick="removeArticleFromFull('<%= article._id %>')" class="input-btn right">Delete</button>
                 <button style="margin-right: 10px" id="open-edit-article-btn" onclick="toggleEditArticleForm()" class="input-btn right">Edit</button>
+                <% } %>
             <% } %>
             <p class="date-field">Posted on: <%= article.createdAt %></p>
             <h1><%= article.title %></h1>
