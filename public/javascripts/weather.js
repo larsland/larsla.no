@@ -1,4 +1,6 @@
-function loadWeather() {
+var counter = 0;
+
+function loadWeather(city) {
     var weatherCondition = document.getElementById('condition');
     var temperature = document.getElementById('temperature');
     var name = document.getElementById('name');
@@ -34,7 +36,18 @@ function loadWeather() {
         name.innerHTML = nameData;
         weatherIcon.src = "http://openweathermap.org/img/w/" + icon + '.png'
     }
-    httpGet('http://api.openweathermap.org/data/2.5/weather?id=3133881&appid=be55e41ee85013c7d884355794cb9f6d', renderWeather);
+    httpGet('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=be55e41ee85013c7d884355794cb9f6d', renderWeather);
 }
 
-window.addEventListener('load', loadWeather)
+var changeWeather = function() {
+    var cities = ["Trondheim", "Oslo", "Sandefjord"];
+    if ((counter + 1) >= cities.length) {
+        counter = 0;
+    }
+    else {
+        counter += 1;
+    }
+    loadWeather(cities[counter])
+}
+
+window.addEventListener('load', loadWeather("Trondheim"))
