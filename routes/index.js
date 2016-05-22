@@ -92,7 +92,7 @@ router.post('/api/articles', function(req, res, next) {
 
 /* POST edit to an article (works as PUT request)*/
 router.post('/api/articles/:_id', function(req, res) {
-    if (req.isAuthenticated()) {
+    if ((req.user.username === 'lille') && (req.isAuthenticated())) {
         Article.findById(req.params._id, function(err, article) {
             if (err) {
                 res.send(err);
@@ -113,7 +113,7 @@ router.post('/api/articles/:_id', function(req, res) {
 
 /* DELETE a single article */
 router.delete('/api/articles/:_id', function(req, res) {
-    if (req.isAuthenticated()) {
+    if ((req.user.username === 'lille') && (req.isAuthenticated())) {
         Article.remove({_id: req.params._id},
             function(err, article) {
                 if (err) {
