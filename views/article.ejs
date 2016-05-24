@@ -3,11 +3,12 @@
     <head>
         <title><%= title %></title>
         <link rel='stylesheet' href='/stylesheets/style.css'>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/default.min.css">
         <script src="/javascripts/marked.js"></script>
     </head>
     <body>
         <% include partials/header %>
-        <div class="main-container center">
+        <div class="main-container box-60 center">
             <% if(user) { %>
                 <% if(user.username === 'lille') { %>
                 <button onclick="removeArticleFromFull('<%= article._id %>')" class="input-btn right">Delete</button>
@@ -18,8 +19,8 @@
             <h1><%= article.title %></h1>
             <p name="article-ingress"><%= article.ingress %></p>
             <p name="article-content"><%= article.content %></p>
-
-
+        </div>
+        <div class="box-80 center">
             <div id="edit-article-form">
                 <div class="horizontal-line"></div>
                 <h3>Edit article:</h3>
@@ -35,10 +36,13 @@
                 </form>
                 <button onclick="toggleEditArticleForm()" style="margin-right: 10px" class="input-btn right">Cancel</button>
             </div>
-
+        </div>
         </div>
         <% include partials/footer %>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
         <script src="/javascripts/updateMarkdown.js"></script>
         <script src="/javascripts/privateListeners.js"></script>
+
     </body>
 </html>

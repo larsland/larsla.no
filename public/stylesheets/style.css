@@ -118,6 +118,17 @@ ul.nav li {
     font-size: 15px;
 }
 
+/*---- FOR MOBILE -----*/
+.menu-btn {
+    display: none;
+
+}
+.menu-btn-icon {
+    width: 60px;
+    margin-top: 18px;
+    margin-left: 20px;
+}
+
 /*------------------------------------1.2 - Footer------------------------------------*/
 
 .footer {
@@ -450,19 +461,70 @@ input:-webkit-autofill {
     }
     .article-titles-container {
         width: 100%;
+        font-size: 30px;
     }
     .about-text {
         width: 100%;
+        font-size: 50px;
+        text-align: center;
+    }
+    .profile-picture-container {
+        float: none;
+        margin: auto;
+        width: 100%;
     }
     .profile-picture {
-        display: block;
-        position: inherit;
         margin: auto;
-        margin-bottom: 50px;
-        width: 200px;
+        margin-bottom: -80px;
+        width: 350px;
+        border-radius: 400px;
+        border: 30px solid white;
+    }
+    .about-text-container {
+        display: block;
+        width: 100%;
     }
     .about-container {
-        margin-bottom: 500px;
+        margin-bottom: 1100px;
+    }
+    .clock {
+        font-size: 55px;
+    }
+    .arrow-right {
+        display: none;
+    }
+    .blue-row {
+        height: 370px;
+    }
+    .weather-icon {
+        display: none;
+    }
+    header {
+        height: 100px;
+    }
+    .socialIcon {
+        width: 80px;
+    }
+    .row-title {
+        text-align: center;
+        font-size: 70px;
+    }
+    .footer-text {
+        font-size: 35px;
+    }
+    .article h3 {
+        font-size: 40px;
+    }
+    .article p {
+        font-size: 28px;
+    }
+
+    /*----- Header -------*/
+    .auth-container {
+        display: none;
+    }
+    .menu-btn {
+        display: block;
     }
 }
 
