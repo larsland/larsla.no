@@ -1,5 +1,5 @@
 <header class="box-shadow">
-    <div class="menu-btn">
+    <div onclick="toggleMenu()" id ="menu-btn" class="menu-btn">
         <img class="menu-btn-icon" src="/icons/menu.png">
     </div>
     <nav id="nav" class="navTop">
@@ -17,3 +17,9 @@
     <a href="/login"><div class="auth-container"><img class="lock-btn" src="/icons/lock.svg"></a></div>
     <% } %>
 </header>
+
+<div id="menu-tab" class="menu-tab">
+    <div class="menu-tab-btn"><a class="menu-tab-link" href="/">home</a></div>
+    <div class="menu-tab-btn"><a class="menu-tab-link" href="/news">news</a></div>
+    <div class="menu-tab-btn"><a class="menu-tab-link" href="/cv">cv</a></div>
+</div>
