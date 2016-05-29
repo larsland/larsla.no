@@ -565,13 +565,15 @@ input:-webkit-autofill {
     ul.nav {
         display: none;
     }
-
-}
-
-@media only screen and (orientation: landscape) and (max-device-width: 1025px) and (min-width: 1000px) {
-    .about-container {
-        width: 50%;
+    #view-article-container {
+        width: 80%;
+    }
+    .hljs {
+        font-size: 20px;
     }
 
-
 }
+
+/*-------Place media queries for tablets here---------
+@media only screen and (orientation: landscape) and (max-device-width: 1025px) and (min-width: 1000px) {}
+*/

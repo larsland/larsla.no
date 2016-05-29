@@ -10,7 +10,7 @@
     </head>
     <body>
         <% include partials/header %>
-        <div class="main-container box-60 center">
+        <div id="view-article-container" class="main-container box-60 center">
             <% if(user) { %>
                 <% if(user.username === 'lille') { %>
                 <button onclick="removeArticleFromFull('<%= article._id %>')" class="input-btn right">Delete</button>
