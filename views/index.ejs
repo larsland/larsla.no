@@ -12,7 +12,7 @@
                     <img class="profile-picture" src="images/profilepic.jpg">
                 </div>
                 <div class="about-text-container">
-                    <div class="about-text box-shadow">
+                    <div class="about-text box-shadow border-box">
                 		<h1>Hello world!</h1>
                 		<p>I'm Lars. I study informatics at the Norwegian University of Science and Technology. The purpose of this site is simply for me to practice webtechnologies, amd post interesting things I come over, or cool stuff that happens.</p>
                         <a href="https://github.com/larsland" target="_blank"><img class="socialIcon" src="/icons/github.svg"></a>
@@ -48,7 +48,7 @@
             <div class="articles-container article-titles-container left">
             <% for(var i = 0; i < articles.length; i++) { %>
                 <a class="hide"><%= articles[i]._id %></a>
-                <div name="article-titles" id="articleTitle" class="article box-shadow borderBox pointer">
+                <div name="article-titles" id="articleTitle" class="article box-shadow border-box pointer">
                     <h3 class="article-title"><%= articles[i].title %></h3>
                 </div>
             <% } %>
