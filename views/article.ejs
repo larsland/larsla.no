@@ -12,7 +12,7 @@
         <% include partials/header %>
         <div id="view-article-container" class="main-container box-60 center">
             <% if(user) { %>
-                <% if(user.username === 'lille') { %>
+                <% if(user.isAdmin) { %>
                 <button onclick="removeArticleFromFull('<%= article._id %>')" class="input-btn right">Delete</button>
                 <button style="margin-right: 10px" id="open-edit-article-btn" onclick="toggleEditArticleForm()" class="input-btn right">Edit</button>
                 <% } %>

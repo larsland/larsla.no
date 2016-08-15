@@ -13,7 +13,7 @@
                 <div class="news-wrapper">
                     <div>
                         <% if(user) { %>
-                            <% if(user.username === 'lille') { %>
+                            <% if(user.isAdmin) { %>
                         <div onclick="togglePostArticleForm()" class="post-btn-container border-box box-shadow pointer center noSelect" id="post-btn">
                             <img class="post-btn-image noSelect" src="icons/pencil2.svg">
                         </div>
@@ -36,7 +36,7 @@
                     <% for(var i = 0; i < articles.length; i++) { %>
                         <div class="article center box-shadow border-box">
                             <% if(user) { %>
-                                <% if(user.username === 'lille') { %>
+                                <% if(user.isAdmin) { %>
                             <a onclick="removeArticleFromPreview()" id="removeArticle" class="right space-left" href="">
                                 <input type="hidden" value="<%= articles[i]._id %>">
                                 delete

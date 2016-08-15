@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= title %></title>
+        <link rel='stylesheet' href='/stylesheets/style.css'>
+    </head>
+    <body>
+        <% include partials/header %>
+        <div class="main-container center">
+            <div class="login-container box-shadow center">
+                <h2 class="centerText">Register:</h2>
+                <form action="/registerAdmin" method="post">
+                    <p>Name:</p>
+                    <input class="login-field center" type="text" name="name">
+                    <p>Surname:</p>
+                    <input class="login-field center" type="text" name="surname">
+                    <p>Username:</p>
+                    <input class="login-field center" type="text" name="username">
+                    <p>Password:</p>
+                    <input class="login-field center" type="password" name="password">
+                    <p>AdminKey:</p>
+                    <input class="login-field center" type="password" name="adminKey">
+                    <input class="login-btn center pointer" type="submit" value="OK">
+                </form>
+            </div>
+        </div>
+        <% include partials/footer %>
+        <script src="/javascripts/phoneMenu.js"></script>
+    </body>
+
+</html>

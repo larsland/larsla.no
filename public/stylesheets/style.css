@@ -306,7 +306,7 @@ ul.nav li {
 }
 .about-text {
     background-color: white;
-    padding: 10px;
+    padding: 20px;
     right: 0px;
     font-size: 20px;
 }
@@ -339,6 +339,7 @@ ul.nav li {
     border: 1px solid white;
     border-radius: 150px;
     display: inline-block;
+    margin-top: 10px;
 }
 
 .arrow-right {
