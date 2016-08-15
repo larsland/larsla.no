@@ -135,6 +135,13 @@ router.get('/register', function(req, res) {
     });
 });
 
+router.get('/registerAdmin', function(req, res) {
+    res.render('registerAdmin', {
+        title: 'registerAdmin',
+        user: req.user
+    });
+});
+
 router.post('/register', function(req, res) {
     User.register(new User({
         username : req.body.username,
@@ -148,6 +155,27 @@ router.post('/register', function(req, res) {
             res.redirect('/');
         });
     });
+});
+
+router.post('/registerAdmin', function(req, res) {
+    if (req.body.adminKey === "05molaand") {
+        User.register(new User({
+            username : req.body.username,
+            name: req.body.name,
+            surname: req.body.surname,
+            isAdmin: true,
+        }), req.body.password, function(err, User) {
+            if (err) {
+                return res.render('register', { User : User });
+            }
+            passport.authenticate('local')(req, res, function () {
+                res.redirect('/');
+            });
+        });
+    }
+    else {
+        console.log("Error, invalid key")
+    }
 });
 
 

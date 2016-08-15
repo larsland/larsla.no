@@ -28,7 +28,7 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00B7F;
   text-decoration: none;
 }
 
@@ -306,7 +306,7 @@ ul.nav li {
 }
 .about-text {
     background-color: white;
-    padding: 10px;
+    padding: 20px;
     right: 0px;
     font-size: 20px;
 }
@@ -339,6 +339,7 @@ ul.nav li {
     border: 1px solid white;
     border-radius: 150px;
     display: inline-block;
+    margin-top: 10px;
 }
 
 .arrow-right {
@@ -364,12 +365,15 @@ ul.nav li {
 /*------------------------------------4.0 - News------------------------------------*/
 
 .article {
-    width: 100%;
+    width: 80%;
     background-color: white;
     padding: 2px;
     padding-left: 20px;
     margin-bottom: 10px;
     padding-right: 20px;
+}
+.articleTitle {
+    color: #595959;
 }
 .articles-container {
     width: 100%;

@@ -13,7 +13,7 @@
                 <div class="news-wrapper">
                     <div>
                         <% if(user) { %>
-                            <% if(user.username === 'lille') { %>
+                            <% if(user.isAdmin) { %>
                         <div onclick="togglePostArticleForm()" class="post-btn-container border-box box-shadow pointer center noSelect" id="post-btn">
                             <img class="post-btn-image noSelect" src="icons/pencil2.svg">
                         </div>
@@ -34,18 +34,17 @@
                     </div>
                     <div class="articles-container">
                     <% for(var i = 0; i < articles.length; i++) { %>
-                        <div class="article box-shadow border-box">
+                        <div class="article center box-shadow border-box">
                             <% if(user) { %>
-                                <% if(user.username === 'lille') { %>
+                                <% if(user.isAdmin) { %>
                             <a onclick="removeArticleFromPreview()" id="removeArticle" class="right space-left" href="">
                                 <input type="hidden" value="<%= articles[i]._id %>">
                                 delete
                             </a>
                                 <% } %>
                             <% } %>
-                            <a style="display:none"><%= articles[i]._id %></a>
-                            <h3 name="article-titles"><a href=""><%= articles[i].title %></a></h3>
-                            <div class="horizontal-line"></div>
+                            <a style="display: none"><%= articles[i]._id %></a>
+                            <h3 name="article-titles"><a style="color: #7094B8" href=""><%= articles[i].title %></a></h3>
                             <p name="article-ingress"><%= articles[i].ingress %></p>
                         </div>
                     <% } %>
