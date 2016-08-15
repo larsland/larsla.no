@@ -34,7 +34,7 @@
                     </div>
                     <div class="articles-container">
                     <% for(var i = 0; i < articles.length; i++) { %>
-                        <div class="article box-shadow border-box">
+                        <div class="article center box-shadow border-box">
                             <% if(user) { %>
                                 <% if(user.username === 'lille') { %>
                             <a onclick="removeArticleFromPreview()" id="removeArticle" class="right space-left" href="">
@@ -43,9 +43,8 @@
                             </a>
                                 <% } %>
                             <% } %>
-                            <a style="display:none"><%= articles[i]._id %></a>
-                            <h3 name="article-titles"><a href=""><%= articles[i].title %></a></h3>
-                            <div class="horizontal-line"></div>
+                            <a style="display: none"><%= articles[i]._id %></a>
+                            <h3 name="article-titles"><a style="color: #7094B8" href=""><%= articles[i].title %></a></h3>
                             <p name="article-ingress"><%= articles[i].ingress %></p>
                         </div>
                     <% } %>
