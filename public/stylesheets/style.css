@@ -460,9 +460,12 @@ ul.nav li {
     font-size: 20px;
     opacity: 0.8;
 }
+.commentContainer {
+    width: 100%;
+    background-color: white;
+    color: black;
 
-
-
+}
 /*------------------------------------5.0 - Login------------------------------------*/
 
 .login-field {
