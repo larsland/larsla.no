@@ -51,14 +51,14 @@
 
         <div class="box-50 center">
             <% for (var i = 0; i < article.comments.length; i++) { %>
-                <span >
-                    Posted by <%= article.comments[i].postedBy.username %>
-                    at <%= article.comments[i].timePosted %>
+                <span class="commentInfo">
+                    Posted by <span class="commentInfoUsername"><%= article.comments[i].postedBy.username %></span>
+                    <span name="commentTimePosted"><%= article.comments[i].timePosted %></span>
                 </span>
                 <div class="comment box-shadow center">
                     <a href="" class="right space-left">delete</a>
                     <a href="" class="right">edit</a>
-                    <p><%= article.comments[i].text %></p>
+                    <p name="comment"><%= article.comments[i].text %></p>
                 </div>
             <% } %>
         </div>
@@ -67,6 +67,7 @@
         <script src="/javascripts/updateMarkdown.js"></script>
         <script src="/javascripts/privateListeners.js"></script>
         <script src="/javascripts/phoneMenu.js"></script>
+        <script src="/javascripts/commentTimePostedFormatter.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
     </body>
 </html>
