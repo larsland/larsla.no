@@ -40,10 +40,39 @@
             </div>
         </div>
         </div>
+
+        <% if(user) { %>
+        <div class="commentContainer">
+                <form action="/api/articles/<%= article._id %>/comments" method="POST" target="dummyframe">
+                    <h2 class="centerText">Comment</h2>
+                    <textarea rows=12 class="commentField border-box center" name="comment" placeholder="(Comments support Markdown syntax)"></textarea>
+                    <input type="submit" class="input-btn center" value="Post">
+                </form>
+        </div>
+        <% } else { %>
+        <div class="horizontal-line box-80 vertical-space-top-huge center"></div>
+        <p class="centerText vertical-space-top-huge vertical-space-bottom-huge">You need to be <a href="/login">logged in</a> to leave comments</p>
+        <% } %>
+
+        <div class="box-50 center">
+            <% for (var i = 0; i < article.comments.length; i++) { %>
+                <span class="commentInfo">
+                    Posted by <span class="commentInfoUsername"><%= article.comments[i].postedBy.username %></span>
+                    <span name="commentTimePosted"><%= article.comments[i].timePosted %></span>
+                </span>
+                <div class="comment box-shadow center">
+                    <!--<a href="" class="right space-left">delete</a>
+                    <a href="" class="right">edit</a>-->
+                    <p name="comment"><%= article.comments[i].text %></p>
+                </div>
+            <% } %>
+        </div>
+
         <% include partials/footer %>
         <script src="/javascripts/updateMarkdown.js"></script>
         <script src="/javascripts/privateListeners.js"></script>
         <script src="/javascripts/phoneMenu.js"></script>
+        <script src="/javascripts/commentTimePostedFormatter.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
     </body>
 </html>

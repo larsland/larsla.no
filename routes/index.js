@@ -75,6 +75,15 @@ router.get('/api/articles/:_id', function(req, res, next) {
     })
 })
 
+router.get("/api/articles/:_id/comments", function(req, res, next) {
+    Article.findById(req.params._id, function(err, article) {
+        if (err) {
+            res.send(err);
+        }
+        res.json(article.comments);
+    })
+})
+
 /* POST a new article */
 router.post('/api/articles', function(req, res, next) {
   var article = new Article(req.body);
@@ -110,6 +119,27 @@ router.post('/api/articles/:_id', function(req, res) {
     }
     else {console.log("Not authenticated")}
 })
+
+router.post('/api/articles/:_id/comments', function(req, res) {
+    Article.update({_id: req.params._id},
+        {
+            "$push": {
+                comments: {
+                    text: req.body.comment,
+                    postedBy: req.user,
+                    timePosted: Date.now()
+                }
+            }
+        },
+        {
+            new: true
+        }).exec(function(error, article) {
+            if (error) {
+                return res.status(400).send({message: "Failed to add comment!"});
+            }
+            return res.status(200).send(article);
+        });
+    });
 
 /* DELETE a single article */
 router.delete('/api/articles/:_id', function(req, res) {

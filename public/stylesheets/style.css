@@ -287,6 +287,31 @@ ul.nav li {
     background-color: #ff4d4d;
 }
 
+.vertical-space-top {
+    margin-top: 10px;
+}
+.vertical-space-top-double {
+    margin-top: 20px;
+}
+.vertical-space-top-big {
+    margin-top: 30px;
+}
+.vertical-space-top-huge {
+    margin-top: 40px;
+}
+.vertical-space-bottom {
+    margin-bottom: 10px;
+}
+.vertical-space-bottom-double {
+    margin-bottom: 20px;
+}
+.vertical-space-bottom-big {
+    margin-bottom: 30px;
+}
+.vertical-space-bottom-huge {
+    margin-bottom: 40px;
+}
+
 /*------------------------------------3.0 - Home------------------------------------*/
 
 /*------------------------------------3.1 - About------------------------------------*/
@@ -369,7 +394,7 @@ ul.nav li {
     background-color: white;
     padding: 2px;
     padding-left: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     padding-right: 20px;
 }
 .articleTitle {
@@ -385,7 +410,6 @@ ul.nav li {
 .horizontal-line {
     border-bottom: 1px solid black;
     opacity: 0.2;
-    margin: 0 auto;
     padding: 0;
 }
 .post-article {
@@ -460,9 +484,41 @@ ul.nav li {
     font-size: 20px;
     opacity: 0.8;
 }
-
-
-
+.commentContainer {
+    width: 100%;
+    background-color: white;
+    color: black;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    margin-bottom: 50px;
+    margin-top: 100px;
+}
+.comment {
+    width: 100%;
+    background-color: white;
+    color: black;
+    padding: 2px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    padding-right: 20px;
+}
+.commentField {
+    width: 500px;
+    border: 1px solid #888;
+    resize: none;
+    display: block;
+    margin-bottom: 20px;
+}
+.commentInfo {
+    font-style: italic;
+    color: #888;
+}
+.commentInfoUsername {
+    font-style: normal;
+    font-weight: bold;
+    color: #336699;
+    margin-left: 2px;
+}
 /*------------------------------------5.0 - Login------------------------------------*/
 
 .login-field {
