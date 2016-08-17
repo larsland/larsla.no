@@ -44,8 +44,8 @@
         <% if(user) { %>
         <div class="commentContainer">
                 <form action="/api/articles/<%= article._id %>/comments" method="POST" target="dummyframe">
-                    <h2 class="centerText">Comment:</h2>
-                    <textarea rows=12 class="commentField border-box center" name="comment"></textarea>
+                    <h2 class="centerText">Comment</h2>
+                    <textarea rows=12 class="commentField border-box center" name="comment" placeholder="(Comments support Markdown syntax)"></textarea>
                     <input type="submit" class="input-btn center" value="Post">
                 </form>
         </div>
@@ -61,8 +61,8 @@
                     <span name="commentTimePosted"><%= article.comments[i].timePosted %></span>
                 </span>
                 <div class="comment box-shadow center">
-                    <a href="" class="right space-left">delete</a>
-                    <a href="" class="right">edit</a>
+                    <!--<a href="" class="right space-left">delete</a>
+                    <a href="" class="right">edit</a>-->
                     <p name="comment"><%= article.comments[i].text %></p>
                 </div>
             <% } %>
