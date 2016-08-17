@@ -287,6 +287,31 @@ ul.nav li {
     background-color: #ff4d4d;
 }
 
+.vertical-space-top {
+    margin-top: 10px;
+}
+.vertical-space-top-double {
+    margin-top: 20px;
+}
+.vertical-space-top-big {
+    margin-top: 30px;
+}
+.vertical-space-top-huge {
+    margin-top: 40px;
+}
+.vertical-space-bottom {
+    margin-bottom: 10px;
+}
+.vertical-space-bottom-double {
+    margin-bottom: 20px;
+}
+.vertical-space-bottom-big {
+    margin-bottom: 30px;
+}
+.vertical-space-bottom-huge {
+    margin-bottom: 40px;
+}
+
 /*------------------------------------3.0 - Home------------------------------------*/
 
 /*------------------------------------3.1 - About------------------------------------*/
@@ -385,7 +410,6 @@ ul.nav li {
 .horizontal-line {
     border-bottom: 1px solid black;
     opacity: 0.2;
-    margin: 0 auto;
     padding: 0;
 }
 .post-article {
