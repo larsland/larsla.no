@@ -37,7 +37,7 @@
                         <div class="article center box-shadow border-box">
                             <% if(user) { %>
                                 <% if(user.isAdmin) { %>
-                            <a onclick="removeArticleFromPreview()" id="removeArticle" class="right space-left" href="">
+                                <a onclick="removeArticleFromPreview()" id="removeArticle" class="right space-left" href="">
                                 <input type="hidden" value="<%= articles[i]._id %>">
                                 delete
                             </a>

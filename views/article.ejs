@@ -42,21 +42,23 @@
         </div>
 
         <div class="commentContainer">
-            <div class="box-60 center">
                 <form action="/api/articles/<%= article._id %>/comments" method="POST" target="dummyframe">
-                    <h3>Comment:</h3>
-                    <textarea rows=15 class="input-text border-box" name="comment"></textarea>
-                    <input type="submit" class="input-btn right" value="Post">
+                    <h2 class="centerText">Comment:</h2>
+                    <textarea rows=12 class="commentField border-box center" name="comment"></textarea>
+                    <input type="submit" class="input-btn center" value="Post">
                 </form>
-            </div>
         </div>
 
-        <div class="box-60">
+        <div class="box-50 center">
             <% for (var i = 0; i < article.comments.length; i++) { %>
-                <div class="article box-shadow center">
+                <span >
+                    Posted by <%= article.comments[i].postedBy.username %>
+                    at <%= article.comments[i].timePosted %>
+                </span>
+                <div class="comment box-shadow center">
+                    <a href="" class="right space-left">delete</a>
+                    <a href="" class="right">edit</a>
                     <p><%= article.comments[i].text %></p>
-                    <p><%= article.comments[i].timePosted %></p>
-                    <p><%= article.comments[i].postedBy.username %></p>
                 </div>
             <% } %>
         </div>

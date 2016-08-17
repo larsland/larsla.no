@@ -464,7 +464,26 @@ ul.nav li {
     width: 100%;
     background-color: white;
     color: black;
-
+    padding-top: 10px;
+    padding-bottom: 20px;
+    margin-bottom: 50px;
+    margin-top: 100px;
+}
+.comment {
+    width: 100%;
+    background-color: white;
+    color: black;
+    padding: 2px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    padding-right: 20px;
+}
+.commentField {
+    width: 500px;
+    border: 1px solid #888;
+    resize: none;
+    display: block;
+    margin-bottom: 20px;
 }
 /*------------------------------------5.0 - Login------------------------------------*/
 
