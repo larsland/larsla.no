@@ -3,75 +3,71 @@
     <head>
         <title><%= title %></title>
         <link rel='stylesheet' href='/stylesheets/style.css'>
-
         <link rel="stylesheet" href="/stylesheets/highlightTheme.css">
-        <script src="/javascripts/marked.js"></script>
+        <script src="/javascripts/libs/marked.js"></script>
+        <script src="/javascripts/libs/angular.min.js"></script>
+        <script src="/javascripts/controllers/viewArticleController.js"></script>
     </head>
-    <body>
+    <body ng-app="larsla" ng-controller="ViewArticleController" ng-init="renderMarkdown()">
         <% include partials/header %>
-        <div id="view-article-container" class="main-container box-60 center">
+        <div ng-show="showEditArticleForm" class="box-80 center editArticleContainer">
+            <div>
+                <div class="horizontal-line"></div>
+                <h3>Edit article:</h3>
+                <form ng-submit="editArticle('<%= article._id %>')"     target="dummyframe">
+                    <p>Title:</p>
+                    <input ng-model="title" class="input-title center border-box" type="text" name="title"></input><br>
+                    <p>Ingress:</p>
+                    <input ng-model="ingress" class="input-title center border-box" type="text" name="ingress"></input><br>
+                    <p>Content:</p>
+                    <textarea ng-model="content" rows=15 class="input-text center border-box" name="content"></textarea><br>
+                    <input ng-click="toggleEditArticleForm()" type="submit" value="Post" class="input-btn right pointer">
+                    <iframe style="display:none" width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
+                </form>
+                <button ng-click="toggleEditArticleForm()" style="margin-right: 10px" class="input-btn right">Cancel</button>
+            </div>
+        </div>
+
+        <div class="main-container box-60 center" ng-init="updateArticle('<%= article._id %>')">
             <% if(user) { %>
                 <% if(user.isAdmin) { %>
-                <button onclick="removeArticleFromFull('<%= article._id %>')" class="input-btn right">Delete</button>
-                <button style="margin-right: 10px" id="open-edit-article-btn" onclick="toggleEditArticleForm()" class="input-btn right">Edit</button>
+                <button ng-click="removeArticle('<%= article._id %>')" class="input-btn right">Delete</button>
+                <button ng-click="toggleEditArticleForm()" style="margin-right: 10px" class="input-btn right">Edit</button>
                 <% } %>
             <% } %>
             <p class="date-field">Posted on: <%= article.createdAt.toDateString() %></p>
-            <h1><%= article.title %></h1>
-            <p name="article-ingress" class="ingress-text"><%= article.ingress %></p>
-            <p name="article-content"><%= article.content %></p>
-        </div>
-        <div class="box-80 center">
-            <div id="edit-article-form">
-                <div class="horizontal-line"></div>
-                <h3>Edit article:</h3>
-                <form action="/api/articles/<%= article._id %>" method="POST" target="dummyframe">
-                    <p>Title:</p>
-                    <input class="input-title center border-box" value="<%= article.title %>" type="text" name="title"></input><br>
-                    <p>Ingress:</p>
-                    <input class="input-title center border-box" value="<%= article.ingress %>" type="text" name="ingress"></input><br>
-                    <p>Content:</p>
-                    <textarea rows=15 class="input-text center border-box" name="content"><%= article.content %></textarea><br>
-                    <input onclick="toggleEditArticleForm()" type="submit" value="Post" class="input-btn right pointer">
-                    <iframe style="display:none" width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
-                </form>
-                <button onclick="toggleEditArticleForm()" style="margin-right: 10px" class="input-btn right">Cancel</button>
-            </div>
-        </div>
+            <h1>{{article.title}}</h1>
+            <p name="article-ingress" class="ingress-text">{{article.ingress}}</p>
+            <p name="article-content" ng-bind="article.content"></p>
         </div>
 
         <% if(user) { %>
         <div class="commentContainer">
-                <form action="/api/articles/<%= article._id %>/comments" method="POST" target="dummyframe">
-                    <h2 class="centerText">Comment</h2>
-                    <textarea rows=12 class="commentField border-box center" name="comment" placeholder="(Comments support Markdown syntax)"></textarea>
-                    <input type="submit" class="input-btn center" value="Post">
-                </form>
+            <form ng-submit="postComment('<%= article._id %>')">
+                <h2 class="centerText">Comment</h2>
+                <textarea rows=12 class="commentField border-box center" placeholder="(Comments support Markdown syntax)" name="comment" ng-model="commentText"></textarea>
+                <input type="submit" class="input-btn center" value="Post">
+            </form>
         </div>
         <% } else { %>
         <div class="horizontal-line box-80 vertical-space-top-huge center"></div>
         <p class="centerText vertical-space-top-huge vertical-space-bottom-huge">You need to be <a href="/login">logged in</a> to leave comments</p>
         <% } %>
 
-        <div class="box-50 center">
-            <% for (var i = 0; i < article.comments.length; i++) { %>
+        <div class="box-50 center" ng-init="loadComments">
+            <div ng-repeat="comment in article.comments">
                 <span class="commentInfo">
-                    Posted by <span class="commentInfoUsername"><%= article.comments[i].postedBy.username %></span>
-                    <span name="commentTimePosted"><%= article.comments[i].timePosted %></span>
+                    Posted by <span class="commentInfoUsername">{{comment.postedBy.username}}</span>
+                    at <span name="commentTimePosted">{{comment.timePosted | date: 'short'}}</span>
                 </span>
                 <div class="comment box-shadow center">
-                    <!--<a href="" class="right space-left">delete</a>
-                    <a href="" class="right">edit</a>-->
-                    <p name="comment"><%= article.comments[i].text %></p>
+                    <p name="comment">{{comment.text}}</p>
                 </div>
-            <% } %>
+            </div>
         </div>
 
         <% include partials/footer %>
-        <script src="/javascripts/updateMarkdown.js"></script>
-        <script src="/javascripts/privateListeners.js"></script>
-        <script src="/javascripts/phoneMenu.js"></script>
-        <script src="/javascripts/commentTimePostedFormatter.js"></script>
+        <script src="/javascripts/controllers/headerController.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
     </body>
