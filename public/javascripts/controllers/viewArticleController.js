@@ -8,6 +8,14 @@ app.controller("ViewArticleController", ["$scope", "$http", "$location", functio
         $scope.showEditArticleForm = !$scope.showEditArticleForm;
     }
 
+    $scope.fillEditArticleForm = function(id) {
+        $http.get("/api/articles/" + id).then(function(res) {
+            $scope.title = res.data.title;
+            $scope.ingress = res.data.ingress;
+            $scope.content = res.data.content;
+        })
+    }
+
     $scope.renderMarkdown = function() {
         allArticleParagraphs = document.getElementsByName("article-content");
         allCommentParagraphs = document.getElementsByName("comment");

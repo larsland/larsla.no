@@ -8,9 +8,10 @@
         <script src="/javascripts/libs/angular.min.js"></script>
         <script src="/javascripts/controllers/viewArticleController.js"></script>
     </head>
+
     <body ng-app="larsla" ng-controller="ViewArticleController" ng-init="renderMarkdown()">
         <% include partials/header %>
-        <div ng-show="showEditArticleForm" class="box-80 center editArticleContainer">
+        <div ng-show="showEditArticleForm" class="box-80 center editArticleContainer" ng-init="fillEditArticleForm('<%= article._id %>')">
             <div>
                 <div class="horizontal-line"></div>
                 <h3>Edit article:</h3>
