@@ -34,7 +34,7 @@
                         </form>
                     </div>
                     <div class="articles-container">
-                        <div ng-repeat="article in articles" class="article center box-shadow border-box">
+                        <div ng-repeat="article in articles | orderBy: '-'" class="article center box-shadow border-box">
                             <% if(user) { %>
                                 <% if(user.isAdmin) { %>
                                 <a ng-click="deleteArticle(article._id)" class="right space-left" href="">delete</a>

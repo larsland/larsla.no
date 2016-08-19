@@ -51,10 +51,13 @@ app.controller("ViewArticleController", ["$scope", "$http", "$location", functio
 
     $scope.postComment = function(id) {
         var comment = {
-            text: $scope.commentText
+            text: $scope.commentText,
+            postedBy: "me",
+            timePosted: Date.now()
         }
-        $http.put("/api/articles/" + id + "/comments", comment).then(function() {
+        $http.post("/api/articles/" + id + "/comments", comment).then(function(res) {
             $scope.updateArticle(id);
+            $scope.commentText = "";
         })
     }
 

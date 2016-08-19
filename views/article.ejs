@@ -21,7 +21,7 @@
                     <input ng-model="ingress" class="input-title center border-box" type="text" name="ingress"></input><br>
                     <p>Content:</p>
                     <textarea ng-model="content" rows=15 class="input-text center border-box" name="content"></textarea><br>
-                    <input ng-click="toggleEditArticleForm()" type="submit" value="Post" class="input-btn right pointer">
+                    <input ng-click="toggleEditArticleForm()" type="submit" value="Edit" class="input-btn right pointer">
                     <iframe style="display:none" width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
                 </form>
                 <button ng-click="toggleEditArticleForm()" style="margin-right: 10px" class="input-btn right">Cancel</button>
@@ -45,7 +45,7 @@
         <div class="commentContainer">
             <form ng-submit="postComment('<%= article._id %>')">
                 <h2 class="centerText">Comment</h2>
-                <textarea rows=12 class="commentField border-box center" placeholder="(Comments support Markdown syntax)" name="comment" ng-model="commentText"></textarea>
+                <textarea id="commentField" rows=12 class="commentField border-box center" placeholder="(Comments support Markdown syntax)" name="comment" ng-model="commentText"></textarea>
                 <input type="submit" class="input-btn center" value="Post">
             </form>
         </div>
@@ -55,7 +55,7 @@
         <% } %>
 
         <div class="box-50 center" ng-init="loadComments">
-            <div ng-repeat="comment in article.comments">
+            <div ng-repeat="comment in article.comments | orderBy: '-'">
                 <span class="commentInfo">
                     Posted by <span class="commentInfoUsername">{{comment.postedBy.username}}</span>
                     at <span name="commentTimePosted">{{comment.timePosted | date: 'short'}}</span>

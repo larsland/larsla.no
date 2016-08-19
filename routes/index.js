@@ -121,14 +121,15 @@ router.put('/api/articles/:_id', function(req, res) {
 })
 
 // Post a new comment
-router.put('/api/articles/:_id/comments', function(req, res, next) {
+router.post('/api/articles/:_id/comments', function(req, res, next) {
+    console.log(req.body)
     Article.update({_id: req.params._id},
         {
             "$push": {
                 comments: {
-                    text: req.body.comment,
+                    text: req.body.text,
                     postedBy: req.user,
-                    timePosted: Date.now()
+                    timePosted: req.body.timePosted
                 }
             }
         },
