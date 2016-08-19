@@ -3,8 +3,10 @@
     <head>
         <title><%= title %></title>
         <link rel='stylesheet' href='/stylesheets/style.css'>
+        <script src="/javascripts/libs/angular.min.js"></script>
+        <script src="/javascripts/controllers/homeController.js"></script>
     </head>
-    <body>
+    <body ng-app="larsla" ng-controller="HomeController">
         <% include partials/header %>
         <div class="main-container center">
             <div class="about-container">
@@ -22,37 +24,36 @@
                 </div>
             </div>
         </div>
-        <div class="blue-row">
+        <div class="blue-row" ng-init="initiateBlueBar()">
             <div class="row-container center">
                 <div class="box-50 inline centerText">
-                    <p class="clock" id="time"></p>
-                    <p class="clock" id="weekday"></p>
-                    <p class="clock" id="date"></p>
-                    <p class="clock" id="week"></p>
+                    <p ng-bind="time" class="clock"></p>
+                    <p ng-bind="weekday" class="clock"></p>
+                    <p ng-bind="date" class="clock"></p>
+                    <p ng-bind="week" class="clock"></p>
                 </div>
                 <div class="box-50 right centerText">
                     <div class="box-70 left">
-                        <p class="clock" id="name"></p>
-                        <p class="clock" id="temperature"></p>
-                        <p class="clock" id="condition"></p>
-                        <img class="weather-icon" id="weather-icon">
+                        <p ng-bind="cityName" class="clock"></p>
+                        <p class="clock">{{temperature}} &#8451</p>
+                        <p ng-bind="weatherCondition" class="clock"></p>
+                        <img ng-src="{{weatherIcon}}" class="weather-icon">
                     </div>
                     <div class="box-30 inline">
-                        <img class="arrow-right" onclick="changeWeather()" src="/icons/rightArrow.png">
+                        <img ng-click="changeWeather()" class="arrow-right" src="/icons/rightArrow.png">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row-container center">
+        <div class="row-container center" ng-init="loadArticles()">
             <div class="row-title">Latest articles</div>
             <div class="articles-container article-titles-container left">
-            <% for(var i = 0; i < articles.length; i++) { %>
-                <a class="hide"><%= articles[i]._id %></a>
-                <div style="width: 100%" name="article-titles" id="articleTitle" class="article box-shadow border-box pointer">
-                    <h3 class="article-title"><%= articles[i].title %></h3>
-                    <p name="article-ingress"><%= articles[i].ingress %></p>
+                <div ng-repeat="article in articles | orderBy:'-'" style="width: 100%" class="article box-shadow border-box pointer">
+                    <div ng-click="goToArticle(article._id)">
+                        <h3 class="article-title">{{article.title}}</h3>
+                        <p name="article-ingress">{{article.ingress}}</p>
+                    </div>
                 </div>
-            <% } %>
             </div>
             <div class="box-40 inline">
                 <img class="newsIcon right" src="/images/newsIconReverted.png">
@@ -60,10 +61,6 @@
         </div>
 
         <% include partials/footer %>
-        <script src="/javascripts/clock.js"></script>
-        <script src="/javascripts/weather.js"></script>
-        <script src="/javascripts/highlightNav.js"></script>
-        <script src="/javascripts/addArticleLinks.js"></script>
-        <script src="/javascripts/phoneMenu.js"></script>
+        <script src="/javascripts/controllers/headerController.js"></script>
     </body>
 </html>

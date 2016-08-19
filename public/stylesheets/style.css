@@ -440,7 +440,6 @@ ul.nav li {
 }
 .submit-container {
     margin-bottom: 70px;
-    display: none;
 }
 .post-btn-image {
     margin: 0 auto;
@@ -475,9 +474,6 @@ ul.nav li {
     color: gray;
     font-style: italic;
 }
-#edit-article-form {
-    display: none
-}
 
 /*-----------------------------4.1 - Display Single Article--------------------------*/
 .ingress-text {
@@ -486,8 +482,8 @@ ul.nav li {
 }
 .commentContainer {
     width: 100%;
-    background-color: white;
-    color: black;
+    background-color: #7094B8;
+    color: white;
     padding-top: 10px;
     padding-bottom: 20px;
     margin-bottom: 50px;
@@ -518,6 +514,9 @@ ul.nav li {
     font-weight: bold;
     color: #336699;
     margin-left: 2px;
+}
+.editArticleContainer {
+    padding-top: 100px;
 }
 /*------------------------------------5.0 - Login------------------------------------*/
 

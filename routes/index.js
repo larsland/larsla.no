@@ -88,7 +88,7 @@ router.get("/api/articles/:_id/comments", function(req, res, next) {
 router.post('/api/articles', function(req, res, next) {
   var article = new Article(req.body);
 
-  if ((req.user.username === 'lille') && (req.isAuthenticated())) {
+  if ((req.user.isAdmin) && (req.isAuthenticated())) {
       article.save(function(err, article){
         if(err){
             return next(err);
@@ -100,8 +100,8 @@ router.post('/api/articles', function(req, res, next) {
 });
 
 /* POST edit to an article (works as PUT request)*/
-router.post('/api/articles/:_id', function(req, res) {
-    if ((req.user.username === 'lille') && (req.isAuthenticated())) {
+router.put('/api/articles/:_id', function(req, res) {
+    if ((req.user.isAdmin) && (req.isAuthenticated())) {
         Article.findById(req.params._id, function(err, article) {
             if (err) {
                 res.send(err);
@@ -120,14 +120,16 @@ router.post('/api/articles/:_id', function(req, res) {
     else {console.log("Not authenticated")}
 })
 
-router.post('/api/articles/:_id/comments', function(req, res) {
+// Post a new comment
+router.post('/api/articles/:_id/comments', function(req, res, next) {
+    console.log(req.body)
     Article.update({_id: req.params._id},
         {
             "$push": {
                 comments: {
-                    text: req.body.comment,
+                    text: req.body.text,
                     postedBy: req.user,
-                    timePosted: Date.now()
+                    timePosted: req.body.timePosted
                 }
             }
         },
