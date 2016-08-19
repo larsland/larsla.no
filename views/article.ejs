@@ -7,9 +7,10 @@
         <script src="/javascripts/libs/marked.js"></script>
         <script src="/javascripts/libs/angular.min.js"></script>
         <script src="/javascripts/controllers/viewArticleController.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.8/angular-sanitize.js"></script>
     </head>
 
-    <body ng-app="larsla" ng-controller="ViewArticleController" ng-init="renderMarkdown()">
+    <body ng-app="larsla" ng-controller="ViewArticleController">
         <% include partials/header %>
         <div ng-show="showEditArticleForm" class="box-80 center editArticleContainer" ng-init="fillEditArticleForm('<%= article._id %>')">
             <div>
@@ -36,10 +37,12 @@
                 <button ng-click="toggleEditArticleForm()" style="margin-right: 10px" class="input-btn right">Edit</button>
                 <% } %>
             <% } %>
+
             <p class="date-field">Posted on: <%= article.createdAt.toDateString() %></p>
             <h1>{{article.title}}</h1>
             <p name="article-ingress" class="ingress-text">{{article.ingress}}</p>
-            <p name="article-content" ng-bind="article.content"></p>
+            <p name="article-content" ng-bind-html="article.content"></p>
+
         </div>
 
         <% if(user) { %>
@@ -62,7 +65,7 @@
                     at <span name="commentTimePosted">{{comment.timePosted | date: 'short'}}</span>
                 </span>
                 <div class="comment box-shadow center">
-                    <p name="comment">{{comment.text}}</p>
+                    <p name="comment" ng-bind-html="comment.text"></p>
                 </div>
             </div>
         </div>

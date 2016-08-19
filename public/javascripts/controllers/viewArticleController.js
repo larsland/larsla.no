@@ -1,4 +1,4 @@
-var app = angular.module("larsla", []);
+var app = angular.module("larsla", ["ngSanitize"]);
 
 app.controller("ViewArticleController", ["$scope", "$http", "$location", function($scope, $http, $location) {
 
@@ -17,16 +17,11 @@ app.controller("ViewArticleController", ["$scope", "$http", "$location", functio
     }
 
     $scope.renderMarkdown = function() {
-        allArticleParagraphs = document.getElementsByName("article-content");
-        allCommentParagraphs = document.getElementsByName("comment");
+        $scope.article.content = marked($scope.article.content);
+        var comments = $scope.article.comments;
 
-        for (var i = 0; i < allArticleParagraphs.length; i++) {
-            allArticleParagraphs[i].innerHTML = marked(allArticleParagraphs[i].innerHTML);
-        }
-        if (allCommentParagraphs.length != 0) {
-            for (var i = 0; i < allCommentParagraphs.length; i++) {
-                allCommentParagraphs[i].innerHTML = marked(allCommentParagraphs[i].innerHTML);
-            }
+        for (var i = 0; i < comments.length; i++) {
+            comments[i].text = marked(comments[i].text);
         }
     }
 
@@ -54,6 +49,7 @@ app.controller("ViewArticleController", ["$scope", "$http", "$location", functio
     $scope.updateArticle = function(id) {
         $http.get("/api/articles/" + id).then(function(res) {
             $scope.article = res.data;
+            $scope.renderMarkdown();
         })
     }
 

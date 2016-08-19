@@ -9,6 +9,9 @@ if (url == 'news') {
 else if (url == '') {
     homeBtn.className = "navBtnCurrent"
 }
+else {
+    newsBtn.className = "navBtnCurrent"
+}
 
 // For toggling navigation menu on phones
 var menuBtn = document.getElementById('menu-btn');
