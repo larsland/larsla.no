@@ -9,6 +9,7 @@ var mongoose = require('mongoose');
 var markdown = require('markdown').markdown;
 var LocalStrategy = require('passport-local').Strategy;
 var router = express.Router();
+var engine = require('ejs-mate');
 
 mongoose.connect('mongodb://localhost/blog');
 require('./models/Articles');
@@ -18,6 +19,7 @@ var app = express();
 
 
 // view engine setup
+app.engine('ejs', engine);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
