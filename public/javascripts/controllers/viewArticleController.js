@@ -1,6 +1,4 @@
-var app = angular.module("larsla", ["ngSanitize"]);
-
-app.controller("ViewArticleController", ["$scope", "$http", "$location", function($scope, $http, $location) {
+angular.module("larsla").controller("ViewArticleController", ["$scope", "$http", "$location", function($scope, $http, $location) {
 
     $scope.showEditArticleForm = false;
 

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>dsa</title>
+
+    <link rel='stylesheet' href='/stylesheets/style.css'>
+    <link rel='stylesheet' href='/bower_components/highlightjs/styles/monokai_sublime.css'>
+
+  </head>
+  <body>
+      <header class="box-shadow">
+          <div onclick="toggleMenu()" id ="menu-btn" class="menu-btn">
+              <img class="menu-btn-icon" src="/icons/menu.png">
+          </div>
+          <nav id="nav" class="navTop">
+              <ul class="nav">
+                  <li><a id="nav1" class="navBtn" href="/">home</a></li>
+                  <li><a id="nav2" class="navBtn" href="/news">news</a></li>
+                  <li><a id="nav3" class="navBtn" href="/cv">cv</a></li>
+              </ul>
+          </nav>
+
+          <% if(user) { %>
+          <a href="/logout"><div class="auth-container auth-container-logged-in"><img class="lock-btn" src="/icons/unlocked.svg"></a></div>
+          <span class="header-user"><%= user.name %> <%= user.surname %></span>
+          <% } else { %>
+          <a href="/login"><div class="auth-container"><img class="lock-btn" src="/icons/lock.svg"></a></div>
+          <% } %>
+      </header>
+
+      <div id="menu-tab" class="menu-tab">
+          <div class="menu-tab-btn"><a class="menu-tab-link" href="/">home</a></div>
+          <div class="menu-tab-btn"><a class="menu-tab-link" href="/news">news</a></div>
+          <div class="menu-tab-btn"><a class="menu-tab-link" href="/cv">cv</a></div>
+          <div class="menu-tab-btn"><a class="menu-tab-link" href="/login">authenticate</a></div>
+      </div>
+
+      <section ng-app="larsla">
+          <%- body -%>
+      </section>
+
+      <div class="footer">
+          <hr>
+          <p class="fadedText footer-text">© 2015-2016 Lars Liverød Andersen, All rights reserved</p>
+          <a href="https://www.facebook.com/profile.php?id=1104912350" target="_blank"><img class="socialIcon" src="/icons/facebook.svg"></a>
+          <a href="https://twitter.com/LarsLA_" target="_blank"><img class="socialIcon" src="/icons/twitter.svg"></a>
+          <a href="http://instagram.com/lars.la" target="_blank"><img class="socialIcon" src="/icons/instagram.svg"></a>
+          <a href="https://github.com/larsland" target="_blank"><img class="socialIcon" src="/icons/github.svg"></a>
+          <a href="https://www.linkedin.com/profile/view?id=324148398&trk=nav_responsive_tab_profile_pic" target="_blank"><img class="socialIcon" src="/icons/linkedin.svg"></a>
+      </div>
+
+      <!--Libs-->
+      <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+      <script src="/bower_components/angular/angular.min.js"></script>
+      <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+      <script src="/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+      <script src="/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+      <script src="/bower_components/angular-touch/angular-touch.min.js"></script>
+      <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+      <script src="/bower_components/marked/marked.min.js"></script>
+      <script src="/bower_components/moment/min/moment.min.js"></script>
+
+      <!--Angular controllers-->
+      <script src="/javascripts/larsla.js"></script>
+      <script src="/javascripts/controllers/homeController.js"></script>
+      <script src="/javascripts/controllers/headerController.js"></script>
+      <script src="/javascripts/controllers/articlesController.js"></script>
+      <script src="/javascripts/controllers/viewArticleController.js"></script>
+
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script>
+
+  </body>
+</html>

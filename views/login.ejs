@@ -1,33 +1,26 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title><%= title %></title>
-        <link rel='stylesheet' href='/stylesheets/style.css'>
-    </head>
-    <body>
-        <% include partials/header %>
-        <div class="main-container center">
-            <% if (user) { %>
-                <script>
-                    window.location.href = "/"
-                </script>
-            <% } else { %>
-                <div class="login-container box-shadow center">
-                    <h2 class="centerText">Login:</h2>
-                    <form action="/login" method="post">
-                        <p>Username:</p>
-                        <input class="login-field center" type="text" name="username">
-                        <p>Password:</p>
-                        <input class="login-field center" type="password" name="password">
-                        <input class="login-btn center pointer" type="submit" value="OK">
-                    </form>
+<% layout("layout") -%>
 
-                    <p class="centerText">New here? <a href="/register">register here!</a></p>
-                </div>
-            <% } %>
-        </div>
-        <% include partials/footer %>
-        <script src="/javascripts/controllers/headerController.js"></script>
-    </body>
+<section ng-app="larsla">
 
-</html>
+    <div class="main-container center">
+        <% if (user) { %>
+            <script>
+                window.location.href = "/"
+            </script>
+        <% } else { %>
+            <div class="login-container box-shadow center">
+                <h2 class="centerText">Login:</h2>
+                <form action="/login" method="post">
+                    <p>Username:</p>
+                    <input class="login-field center" type="text" name="username">
+                    <p>Password:</p>
+                    <input class="login-field center" type="password" name="password">
+                    <input class="login-btn center pointer" type="submit" value="OK">
+                </form>
+
+                <p class="centerText">New here? <a href="/register">register here!</a></p>
+            </div>
+        <% } %>
+    </div>
+
+</section>

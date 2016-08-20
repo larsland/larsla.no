@@ -1,6 +1,4 @@
-var app = angular.module("larsla", []);
-
-app.controller("ArticlesController", ["$scope", "$http", function($scope, $http) {
+angular.module("larsla").controller("ArticlesController", ["$scope", "$http", function($scope, $http) {
 
     $scope.showPostArticleForm = false;
 

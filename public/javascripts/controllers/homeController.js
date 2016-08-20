@@ -1,6 +1,4 @@
-var app = angular.module("larsla", []);
-
-app.controller("HomeController", ["$scope", "$interval", "$http", function($scope, $interval, $http) {
+angular.module("larsla").controller("HomeController", ["$scope", "$interval", "$http", function($scope, $interval, $http) {
 
     var cityCounter = 0;
 
