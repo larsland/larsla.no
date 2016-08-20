@@ -30,7 +30,7 @@
         <p class="date-field">Posted on: <%= article.createdAt.toDateString() %></p>
         <h1>{{article.title}}</h1>
         <p name="article-ingress" class="ingress-text">{{article.ingress}}</p>
-        <p name="article-content" ng-bind-html="article.content"></p>
+        <p name="article-content" ng-bind-html="article.content" ng-init="initHighlight()"></p>
 
     </div>
 

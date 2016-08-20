@@ -32,6 +32,7 @@
         <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="/bower_components/marked/marked.min.js"></script>
         <script src="/bower_components/moment/min/moment.min.js"></script>
+        <script src="/bower_components/highlightjs/highlight.pack.min.js"></script>
 
         <!--Angular controllers-->
         <script src="/javascripts/larsla.js"></script>
@@ -40,8 +41,12 @@
         <script src="/javascripts/controllers/articlesController.js"></script>
         <script src="/javascripts/controllers/viewArticleController.js"></script>
 
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
-
+        <script>
+        marked.setOptions({
+            highlight: function (code) {
+                return hljs.highlightAuto(code).value;
+            }
+        });
+        </script>
     </body>
 </html>

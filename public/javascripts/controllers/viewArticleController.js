@@ -21,6 +21,7 @@ angular.module("larsla").controller("ViewArticleController", ["$scope", "$http",
         for (var i = 0; i < comments.length; i++) {
             comments[i].text = marked(comments[i].text);
         }
+
     }
 
     $scope.removeArticle = function(id) {
@@ -47,7 +48,7 @@ angular.module("larsla").controller("ViewArticleController", ["$scope", "$http",
     $scope.updateArticle = function(id) {
         $http.get("/api/articles/" + id).then(function(res) {
             $scope.article = res.data;
-            $scope.renderMarkdown();
+            $scope.renderMarkdown($scope.initHighlight);
         })
     }
 
