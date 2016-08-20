@@ -1,6 +1,9 @@
 # node modules
 node_modules/*
 
+# bower components
+public/bower_components/*
+
 
 # debug log
 npm-debug.log
