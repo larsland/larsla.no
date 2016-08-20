@@ -1,0 +1,29 @@
+{
+  "name": "larsla.no",
+  "homepage": "https://github.com/larsland/larsla.no",
+  "authors": [
+    "lars <lars_la@live.com>"
+  ],
+  "description": "My homepage",
+  "main": "../../app.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "marked": "^0.3.6",
+    "jquery": "^3.1.0",
+    "moment": "^2.14.1",
+    "bootstrap": "^3.3.7",
+    "angular-bootstrap": "^2.1.0",
+    "angular-animate": "^1.5.8",
+    "angular-touch": "^1.5.8",
+    "angular-sanitize": "^1.5.8",
+    "highlightjs": "^9.6.0"
+  }
+}
