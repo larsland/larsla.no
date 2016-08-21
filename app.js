@@ -11,12 +11,11 @@ var LocalStrategy = require('passport-local').Strategy;
 var router = express.Router();
 var engine = require('ejs-mate');
 
-mongoose.connect('mongodb://localhost/blog');
+mongoose.connect('mongodb://localhost/larsla');
 require('./models/Articles');
 var routes = require('./routes/index');
 
 var app = express();
-
 
 // view engine setup
 app.engine('ejs', engine);
@@ -66,13 +65,16 @@ if (app.get('env') === 'development') {
   });
 }
 
+
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,
-    error: {}
+    error: {
+        status: err.status
+    }
   });
 });
 
