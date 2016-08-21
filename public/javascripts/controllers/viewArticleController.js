@@ -21,28 +21,15 @@ angular.module("larsla").controller("ViewArticleController", ["$scope", "$http",
         for (var i = 0; i < comments.length; i++) {
             comments[i].text = marked(comments[i].text);
         }
-
     }
 
-    $scope.removeArticle = function(id) {
-        var assuranceCheck = window.prompt("Are you sure you want to delete this article?" + '\n\n' + "Type 'yes' for deletion")
-        if (assuranceCheck === "yes") {
-            $http.delete("/api/articles/" + id).then(function(res) {
-                window.location = "/news";
-            });
-        }
-    }
-
-    $scope.editArticle = function(id) {
-        updatedArticle = {
-            title: $scope.title,
-            ingress: $scope.ingress,
-            content: $scope.content
-        }
-
-        $http.put("/api/articles/" + id, updatedArticle).then(function(res) {
-            $scope.updateArticle(id);
-        })
+    $scope.highLightCode = function() {
+        marked.setOptions({
+            highlight: function (code) {
+                return hljs.highlightAuto(code).value;
+            }
+        });
+        marked.defaults.langPrefix = "hljs lang-"
     }
 
     $scope.updateArticle = function(id) {
@@ -62,6 +49,27 @@ angular.module("larsla").controller("ViewArticleController", ["$scope", "$http",
             $scope.updateArticle(id);
             $scope.commentText = "";
         })
+    }
+
+    $scope.editArticle = function(id) {
+        updatedArticle = {
+            title: $scope.title,
+            ingress: $scope.ingress,
+            content: $scope.content
+        }
+
+        $http.put("/api/articles/" + id, updatedArticle).then(function(res) {
+            $scope.updateArticle(id);
+        })
+    }
+
+    $scope.removeArticle = function(id) {
+        var assuranceCheck = window.prompt("Are you sure you want to delete this article?" + '\n\n' + "Type 'yes' for deletion")
+        if (assuranceCheck === "yes") {
+            $http.delete("/api/articles/" + id).then(function(res) {
+                window.location = "/news";
+            });
+        }
     }
 
 }]);
