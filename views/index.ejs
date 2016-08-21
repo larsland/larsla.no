@@ -1,66 +1,57 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title><%= title %></title>
-        <link rel='stylesheet' href='/stylesheets/style.css'>
-        <script src="/javascripts/libs/angular.min.js"></script>
-        <script src="/javascripts/controllers/homeController.js"></script>
-    </head>
-    <body ng-app="larsla" ng-controller="HomeController">
-        <% include partials/header %>
-        <div class="main-container center">
-            <div class="about-container">
-                <div class="profile-picture-container">
-                    <img class="profile-picture" src="images/profilepic.jpg">
-                </div>
-                <div class="about-text-container">
-                    <div class="about-text box-shadow border-box">
-                		<h1>Hello world!</h1>
-                		<p>I'm Lars. I study informatics at the Norwegian University of Science and Technology. The purpose of this site is simply for me to practice webtechnologies, amd post interesting things I come over, or cool stuff that happens.</p>
-                        <a href="https://github.com/larsland" target="_blank"><img class="socialIcon" src="/icons/github.svg"></a>
-                        <a href="https://www.linkedin.com/profile/view?id=324148398&trk=nav_responsive_tab_profile_pic" target="_blank"><img class="socialIcon" src="/icons/linkedin.svg"></a>
-                        <a href="https://twitter.com/LarsLA_" target="_blank"><img class="socialIcon" src="/icons/twitter.svg"></a>
-                	</div>
-                </div>
-            </div>
-        </div>
-        <div class="blue-row" ng-init="initiateBlueBar()">
-            <div class="row-container center">
-                <div class="box-50 inline centerText">
-                    <p ng-bind="time" class="clock"></p>
-                    <p ng-bind="weekday" class="clock"></p>
-                    <p ng-bind="date" class="clock"></p>
-                    <p ng-bind="week" class="clock"></p>
-                </div>
-                <div class="box-50 right centerText">
-                    <div class="box-70 left">
-                        <p ng-bind="cityName" class="clock"></p>
-                        <p class="clock">{{temperature}} &#8451</p>
-                        <p ng-bind="weatherCondition" class="clock"></p>
-                        <img ng-src="{{weatherIcon}}" class="weather-icon">
-                    </div>
-                    <div class="box-30 inline">
-                        <img ng-click="changeWeather()" class="arrow-right" src="/icons/rightArrow.png">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row-container center" ng-init="loadArticles()">
-            <div class="row-title">Latest articles</div>
-            <div class="articles-container article-titles-container left">
-                <div ng-repeat="article in articles | orderBy:'-'" style="width: 100%" class="article box-shadow border-box pointer">
-                    <div ng-click="goToArticle(article._id)">
-                        <h3 class="article-title">{{article.title}}</h3>
-                        <p name="article-ingress">{{article.ingress}}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="box-40 inline">
-                <img class="newsIcon right" src="/images/newsIconReverted.png">
-            </div>
-        </div>
+<% layout("layout") -%>
 
-        <% include partials/footer %>
-        <script src="/javascripts/controllers/headerController.js"></script>
-    </body>
-</html>
+<section ng-controller="HomeController">
+
+    <div class="main-container center">
+        <div class="about-container">
+            <div class="profile-picture-container">
+                <img class="profile-picture" src="images/profilepic.jpg">
+            </div>
+            <div class="about-text-container">
+                <div class="about-text box-shadow border-box">
+            		<h1>Hello world!</h1>
+            		<p>I'm Lars. I study informatics at the Norwegian University of Science and Technology. The purpose of this site is simply for me to practice webtechnologies, amd post interesting things I come over, or cool stuff that happens.</p>
+                    <a href="https://github.com/larsland" target="_blank"><img class="socialIcon" src="/icons/github.svg"></a>
+                    <a href="https://www.linkedin.com/profile/view?id=324148398&trk=nav_responsive_tab_profile_pic" target="_blank"><img class="socialIcon" src="/icons/linkedin.svg"></a>
+                    <a href="https://twitter.com/LarsLA_" target="_blank"><img class="socialIcon" src="/icons/twitter.svg"></a>
+            	</div>
+            </div>
+        </div>
+    </div>
+    <div class="blue-row" ng-init="initiateBlueBar()">
+        <div class="row-container center">
+            <div class="box-50 inline centerText">
+                <p ng-bind="time" class="clock"></p>
+                <p ng-bind="weekday" class="clock"></p>
+                <p ng-bind="date" class="clock"></p>
+                <p ng-bind="week" class="clock"></p>
+            </div>
+            <div class="box-50 right centerText">
+                <div class="box-70 left">
+                    <p ng-bind="cityName" class="clock"></p>
+                    <p class="clock">{{temperature}} &#8451</p>
+                    <p ng-bind="weatherCondition" class="clock"></p>
+                    <img ng-src="{{weatherIcon}}" class="weather-icon">
+                </div>
+                <div class="box-30 inline">
+                    <img ng-click="changeWeather()" class="arrow-right" src="/icons/rightArrow.png">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row-container center" ng-init="loadArticles()">
+        <div class="row-title">Latest articles</div>
+        <div class="articles-container article-titles-container left">
+            <div ng-repeat="article in articles | orderBy:'-'" style="width: 100%" class="article box-shadow border-box pointer">
+                <div ng-click="goToArticle(article._id)">
+                    <h3 class="article-title">{{article.title}}</h3>
+                    <p name="article-ingress">{{article.ingress}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="box-40 inline">
+            <img class="newsIcon right" src="/images/newsIconReverted.png">
+        </div>
+    </div>
+
+</section>

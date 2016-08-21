@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= title %></title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Lars Liverød Andersen' homepage and blog">
+        <meta name="keywords" content="Code">
+        <meta name="author" content="Lars Liverød Andersen">
+
+        <!--Stylesheets-->
+        <link rel='stylesheet' href='/stylesheets/style.css'>
+        <link rel='stylesheet' href='/bower_components/highlightjs/styles/darkula.css'>
+
+    </head>
+
+    <body ng-cloak ng-app="larsla">
+        <% include partials/header %>
+
+        <section>
+            <%- body -%>
+        </section>
+
+        <% include partials/footer %>
+
+        <!--Libs-->
+        <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="/bower_components/angular/angular.min.js"></script>
+        <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+        <script src="/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+        <script src="/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+        <script src="/bower_components/angular-touch/angular-touch.min.js"></script>
+        <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="/bower_components/marked/marked.min.js"></script>
+        <script src="/bower_components/moment/min/moment.min.js"></script>
+        <script src="/bower_components/highlightjs/highlight.pack.min.js"></script>
+
+        <!--Angular controllers-->
+        <script src="/javascripts/angularApp.js"></script>
+        <script src="/javascripts/controllers/homeController.js"></script>
+        <script src="/javascripts/controllers/headerController.js"></script>
+        <script src="/javascripts/controllers/articlesController.js"></script>
+        <script src="/javascripts/controllers/viewArticleController.js"></script>
+    </body>
+</html>

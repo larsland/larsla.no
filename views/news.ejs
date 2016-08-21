@@ -1,54 +1,45 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title><%= title %></title>
-        <link rel='stylesheet' href='/stylesheets/style.css'>
-        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-        <script src="/javascripts/libs/angular.min.js"></script>
-        <script src="/javascripts/controllers/articlesController.js"></script>
-    </head>
-    <body ng-app="larsla" ng-controller="ArticlesController" ng-init="loadArticles()">
-        <% include partials/header %>
-        <div class="main-container center">
-            <div class="row">
-                <div class="news-wrapper">
-                    <div>
+<% layout("layout") -%>
+
+<section ng-app="larsla" ng-controller="ArticlesController" ng-init="loadArticles()">
+
+    <div class="main-container center">
+        <div class="row">
+            <div class="news-wrapper">
+                <div>
+                    <% if(user) { %>
+                        <% if(user.isAdmin) { %>
+                        <div ng-click="togglePostArticleForm()" class="post-btn-container border-box box-shadow pointer center noSelect" id="post-btn">
+                            <img class="post-btn-image noSelect" src="icons/pencil2.svg">
+                        </div>
+                        <% } %>
+                    <% } %>
+                </div>
+                <div ng-show="showPostArticleForm" class="submit-container" id="submit-container">
+                    <form ng-submit="postArticle()" target="dummyframe">
+                        <p>Title:</p>
+                        <input class="input-title border-box center" type="text" name="title" ng-model="title"></input><br>
+                        <p>Ingress:</p>
+                        <input class="input-title border-box center" type="text" name="ingress" ng-model="ingress"></input><br>
+                        <p>Content:</p>
+                        <textarea rows=15 class="input-text border-box center" name="content" ng-model="content"></textarea><br>
+                        <input type="submit" value="Post" class="input-btn right pointer" ng-click="togglePostArticleForm()">
+                        <iframe style="display:none" width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
+                    </form>
+                </div>
+                <div class="articles-container">
+                    <div ng-repeat="article in articles | orderBy: '-'" class="article center box-shadow border-box">
                         <% if(user) { %>
                             <% if(user.isAdmin) { %>
-                            <div ng-click="togglePostArticleForm()" class="post-btn-container border-box box-shadow pointer center noSelect" id="post-btn">
-                                <img class="post-btn-image noSelect" src="icons/pencil2.svg">
-                            </div>
+                            <a ng-click="deleteArticle(article._id)" class="right space-left" href="">delete</a>
                             <% } %>
                         <% } %>
-                    </div>
-                    <div ng-show="showPostArticleForm" class="submit-container" id="submit-container">
-                        <form ng-submit="postArticle()" target="dummyframe">
-                            <p>Title:</p>
-                            <input class="input-title border-box center" type="text" name="title" ng-model="title"></input><br>
-                            <p>Ingress:</p>
-                            <input class="input-title border-box center" type="text" name="ingress" ng-model="ingress"></input><br>
-                            <p>Content:</p>
-                            <textarea rows=15 class="input-text border-box center" name="content" ng-model="content"></textarea><br>
-                            <input type="submit" value="Post" class="input-btn right pointer" ng-click="togglePostArticleForm()">
-                            <iframe style="display:none" width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
-                        </form>
-                    </div>
-                    <div class="articles-container">
-                        <div ng-repeat="article in articles | orderBy: '-'" class="article center box-shadow border-box">
-                            <% if(user) { %>
-                                <% if(user.isAdmin) { %>
-                                <a ng-click="deleteArticle(article._id)" class="right space-left" href="">delete</a>
-                                <% } %>
-                            <% } %>
-                            <a style="display: none">{{article._id}}</a>
-                            <h3 name="article-titles"><a style="color: #7094B8" href="/news/{{article._id}}">{{article.title}}</a></h3>
-                            <p name="article-ingress">{{article.ingress}}</p>
-                        </div>
+                        <a style="display: none">{{article._id}}</a>
+                        <h3 name="article-titles"><a style="color: #7094B8" href="/news/{{article._id}}">{{article.title}}</a></h3>
+                        <p name="article-ingress">{{article.ingress}}</p>
                     </div>
                 </div>
             </div>
         </div>
-        <% include partials/footer %>
-        <script src="/javascripts/controllers/headerController.js"></script>
-    </body>
-</html>
+    </div>
+
+</section>
