@@ -75,6 +75,7 @@ router.get('/api/articles/:_id', function(req, res, next) {
     })
 })
 
+// GET all comments for a single article
 router.get("/api/articles/:_id/comments", function(req, res, next) {
     Article.findById(req.params._id, function(err, article) {
         if (err) {
@@ -99,7 +100,7 @@ router.post('/api/articles', function(req, res, next) {
   else {console.log("Not authorized")}
 });
 
-/* POST edit to an article (works as PUT request)*/
+/* PUT changes to an article */
 router.put('/api/articles/:_id', function(req, res) {
     if ((req.user.isAdmin) && (req.isAuthenticated())) {
         Article.findById(req.params._id, function(err, article) {
@@ -120,9 +121,8 @@ router.put('/api/articles/:_id', function(req, res) {
     else {console.log("Not authenticated")}
 })
 
-// Post a new comment
+// POST a new comment
 router.post('/api/articles/:_id/comments', function(req, res, next) {
-    console.log(req.body)
     Article.update({_id: req.params._id},
         {
             "$push": {
@@ -142,6 +142,23 @@ router.post('/api/articles/:_id/comments', function(req, res, next) {
             return res.status(200).send(article);
         });
     });
+
+// DELETE a comment
+router.post("/api/articles/:_id/comments/:_id", function(req, res, next) {
+    Article.update(
+        { _id: req.body.articleId },
+        { "$pull": { comments: { _id: req.body.commentId }}},
+        { safe: true }
+    ).exec(function(err, data) {
+        if (err) {
+            return res.send("err");
+        }
+        else {
+            return res.send("success");
+        }
+
+    });
+});
 
 /* DELETE a single article */
 router.delete('/api/articles/:_id', function(req, res) {
