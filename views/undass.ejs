@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Undass</title>
+        <style>
+            body {
+                transition: background-color 2.5s ease;
+                background-color: #fff;
+            }
+            h1 {
+                font-size: 120px;
+                font-family: Arial;
+                text-align: center;
+            }
+            h2 {
+                font-size: 90px;
+                font-family: Arial;
+                text-align: center;
+            }
+            div {
+                margin-top: 100px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div>
+            <h1>UT2805 - Webtek</h1>
+            <h2>Undass</h2>
+        </div>
+
+        <script>
+            var body = document.getElementsByTagName("body")[0].style;
+            var title = document.getElementsByTagName("h1")[0].style;
+            var subtitle = document.getElementsByTagName("h2")[0].style;
+            var colors = ["#00ff00", "#ffff00", "#ff0066", "#0000ff", "#00ffff", "#ffffff"];
+            var counter = 0;
+            window.addEventListener('load', function(e) {
+                setInterval(function() {
+                    var color1 = colors[Math.floor(Math.random() * colors.length)];
+                    var color2 = colors[Math.floor(Math.random() * colors.length)];
+                    var color3 = colors[Math.floor(Math.random() * colors.length)];
+
+                    body.backgroundColor = color1;
+                    title.color = color2;
+                    subtitle.color = color3;
+                }, 2000)
+            });
+
+        </script>
+    </body>
+</html>

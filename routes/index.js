@@ -55,6 +55,13 @@ router.get('/cv', function(req, res, next){
     })
 })
 
+/* GET undass page. */
+router.get('/undass', function(req, res, next) {
+    res.render('undass', {
+        title: 'larsla:undass'
+    })
+});
+
 /* GET all articles */
 router.get('/api/articles', function(req, res, next) {
     Article.find(function(err, articles){
