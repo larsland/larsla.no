@@ -7,3 +7,6 @@ public/bower_components/*
 
 # debug log
 npm-debug.log
+
+#idea stuff
+.idea/*
