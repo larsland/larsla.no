@@ -54,6 +54,7 @@
                 at <span name="commentTimePosted">{{comment.timePosted | date: 'short'}}</span>
             </span>
             <div class="comment box-shadow center">
+                <span class="right"><a href="" ng-click="deleteComment('<%= article._id %>', comment._id)">delete</a></span>
                 <p name="comment" ng-bind-html="comment.text"></p>
             </div>
         </div>

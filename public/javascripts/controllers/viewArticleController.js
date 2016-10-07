@@ -72,4 +72,14 @@ angular.module("larsla").controller("ViewArticleController", ["$scope", "$http",
         }
     }
 
+    $scope.deleteComment = function(articleId, commentId) {
+        var data = {
+            articleId,
+            commentId
+        }
+        $http.post("/api/articles/" + articleId + "/comments/" + commentId, data).then(function(res) {
+            $scope.updateArticle(articleId);
+        });
+    }
+
 }]);
